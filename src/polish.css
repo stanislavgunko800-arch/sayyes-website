@@ -207,3 +207,6 @@ body::after{content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;o
 html:not([lang=ka]) .eyebrow{text-transform:uppercase}
 html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-letter,html:not([lang=ka]) .gallery-caption small::first-letter,html:not([lang=ka]) .gallery-caption b::first-letter{text-transform:uppercase}
 .gallery-caption b{display:block}
+
+.reviews-actions{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
+@media(max-width:600px){.reviews-actions .button{width:100%}.reviews-actions .text-link{margin-top:4px}}

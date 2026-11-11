@@ -141,3 +141,7 @@ for ru,en,ka in [
  ('Все отзывы Say Yes на Google ↗','All Say Yes reviews on Google ↗','Say Yes-ის ყველა შეფასება Google-ზე ↗'),
  ('Все отзывы Say Yes на Яндексе ↗','All Say Yes reviews on Yandex ↗','Say Yes-ის ყველა შეფასება Yandex-ზე ↗'),
 ]:pair(ru,en,ka)
+for ru,en,ka in [
+ ('Оставить отзыв на Google','Leave a review on Google','დატოვეთ შეფასება Google-ზე'),
+ ('Оставить отзыв на Яндексе','Leave a review on Yandex','დატოვეთ შეფასება Yandex-ზე'),
+]:pair(ru,en,ka)

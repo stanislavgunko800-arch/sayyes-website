@@ -10,6 +10,8 @@ def _svg(body):return '<svg viewBox="0 0 24 24" width="19" height="19" fill="non
 CTA_STYLES={
  'Записаться':('cta-book','<i class="cta-icon cta-pulse" aria-hidden="true"></i>'),
  'Выбрать время':('cta-book','<i class="cta-icon">'+_svg('<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15l2 2 4-4"/>')+'</i>'),
+ 'Оставить отзыв на Google':('cta-book','<i class="cta-icon">'+_svg('<path d="M12 3.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/>')+'</i>'),
+ 'Оставить отзыв на Яндексе':('cta-menu','<i class="cta-icon">'+_svg('<path d="M12 3.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/>')+'</i>'),
  'Выбрать своего мастера':('cta-master','<i class="cta-icon">'+_svg('<circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8l12 9M8 16L20 7"/>')+'</i>'),
  'Что сегодня в меню?':('cta-menu','<i class="cta-icon">'+_svg('<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path class="steam" d="M8.5 3.5c0 1.4 1.4 1.4 1.4 2.8M12 3.5c0 1.4 1.4 1.4 1.4 2.8"/>')+'</i>'),
 }
