@@ -335,3 +335,16 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
 .note-dialog h2{font:800 16px/1.2 var(--sans);letter-spacing:0;margin:26px 0 8px}
 .note-dialog .text-link{font-size:12px;margin-top:6px}
 @media(max-width:600px){.note-dialog{padding:56px 24px 30px}}
+
+/* ---- Phones: one-row header that tucks away, language switch inside the menu ---- */
+.site-header{transition:transform .4s var(--ease),box-shadow .25s}
+.site-header.is-tucked{transform:translateY(-102%)}
+.mobile-booking{transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s}
+.mobile-booking.is-away{opacity:0;transform:translateX(-50%) translateY(26px);pointer-events:none}
+@media(max-width:600px){
+ html.lang-in-menu .site-header{flex-wrap:nowrap;min-height:74px;height:74px;padding:0 5%}
+ .mobile-menu .language-switch{order:0;width:auto;display:inline-flex;margin-top:30px;border:1px solid var(--line);border-radius:30px;padding:4px;gap:4px}
+ .mobile-menu .language-switch a{font-size:14px;min-height:44px;min-width:64px;padding:10px 16px;border-bottom:0;font-weight:600}
+ .mobile-menu .language-switch a[aria-current=page]{background:var(--ink);color:var(--paper)}
+}
+@media(prefers-reduced-motion:reduce){.site-header.is-tucked{transform:none}}

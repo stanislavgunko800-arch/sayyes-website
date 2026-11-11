@@ -44,6 +44,44 @@ const sectionObserver=new IntersectionObserver(entries=>{
 },{rootMargin:'-15% 0px -65% 0px'});
 document.querySelectorAll('main section[id]').forEach(el=>sectionObserver.observe(el));
 
+// Phones: the language switch lives in the menu (one-row header) and the header
+// tucks away while reading downwards, returning as soon as the user scrolls up.
+const phone=matchMedia('(max-width: 600px)');
+const languageSwitch=document.querySelector('.language-switch');
+const switchHome={parent:languageSwitch?.parentElement,next:languageSwitch?.nextElementSibling};
+function placeLanguageSwitch(){
+ if(!languageSwitch)return;
+ const inMenu=phone.matches;
+ document.documentElement.classList.toggle('lang-in-menu',inMenu);
+ if(inMenu)document.querySelector('#mobile-menu').append(languageSwitch);
+ else switchHome.parent.insertBefore(languageSwitch,switchHome.next);
+}
+placeLanguageSwitch();
+phone.addEventListener('change',placeLanguageSwitch);
+let lastY=scrollY,tuckFrame=0;
+function updateHeaderTuck(){
+ tuckFrame=0;
+ const y=scrollY,delta=y-lastY;
+ if(!phone.matches||document.body.classList.contains('menu-open')){header.classList.remove('is-tucked');lastY=y;return;}
+ if(Math.abs(delta)<8)return;
+ if(delta>0&&y>160)header.classList.add('is-tucked');
+ else if(delta<0||y<=60)header.classList.remove('is-tucked');
+ lastY=y;
+}
+window.addEventListener('scroll',()=>{if(!tuckFrame)tuckFrame=requestAnimationFrame(updateHeaderTuck);},{passive:true});
+header.addEventListener('focusin',()=>header.classList.remove('is-tucked'));
+
+// The floating booking pill steps aside while a booking button is already on screen.
+const bookingPill=document.querySelector('.mobile-booking');
+if(bookingPill){
+ const seen=new Set();
+ const watcher=new IntersectionObserver(entries=>{
+  for(const entry of entries)entry.isIntersecting?seen.add(entry.target):seen.delete(entry.target);
+  bookingPill.classList.toggle('is-away',seen.size>0);
+ },{rootMargin:'0px 0px -8% 0px'});
+ document.querySelectorAll('.hero-buttons,.beauty .section-heading .button,.cta-master,.reviews-actions,.contacts-section').forEach(el=>watcher.observe(el));
+}
+
 const menuToggle=document.querySelector('.menu-toggle'),mobileMenu=document.querySelector('#mobile-menu');
 function closeMenu(){mobileMenu.hidden=true;document.body.classList.remove('menu-open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label',t('Открыть меню'));}
 menuToggle.addEventListener('click',()=>{
