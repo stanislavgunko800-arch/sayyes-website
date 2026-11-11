@@ -25,11 +25,11 @@ export function initSmoothScroll() {
 
 // The marquee speeds up while the page scrolls and relaxes back when it stops.
 export function initTickerVelocity() {
- const track=document.querySelector('.ticker-track');
- if(!track||reduced.matches)return;
+ const tracks=[...document.querySelectorAll('.ticker-track')];
+ if(!tracks.length||reduced.matches)return;
  const proxy={rate:1};
  let idle=0;
- const apply=()=>{for(const animation of track.getAnimations())animation.playbackRate=proxy.rate;};
+ const apply=()=>{for(const track of tracks)for(const animation of track.getAnimations())animation.playbackRate=proxy.rate;};
  const to=rate=>gsap.to(proxy,{rate,duration:rate>1?.35:1.1,ease:'power2.out',overwrite:true,onUpdate:apply});
  ScrollTrigger.create({start:0,end:'max',onUpdate:self=>{
   to(1+Math.min(Math.abs(self.getVelocity())/260,9));

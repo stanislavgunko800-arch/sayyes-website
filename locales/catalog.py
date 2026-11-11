@@ -145,3 +145,13 @@ for ru,en,ka in [
  ('Оставить отзыв на Google','Leave a review on Google','დატოვეთ შეფასება Google-ზე'),
  ('Оставить отзыв на Яндексе','Leave a review on Yandex','დატოვეთ შეფასება Yandex-ზე'),
 ]:pair(ru,en,ka)
+for ru,en,ka in [
+ ('ТВОЙ РИТМ','YOUR RHYTHM','შენი რიტმი'),
+ ('для себя','for yourself','საკუთარ თავს'),
+ ('Красота, кофе, забота — Say Yes','Beauty, coffee, care — Say Yes','სილამაზე, ყავა, ზრუნვა — Say Yes'),
+]:pair(ru,en,ka)
+for ru,en,ka in [
+ ('КРАСОТА','BEAUTY','სილამაზე'),
+ ('КОФЕ','COFFEE','ყავა'),
+ ('ЗАБОТА','CARE','ზრუნვა'),
+]:pair(ru,en,ka)
