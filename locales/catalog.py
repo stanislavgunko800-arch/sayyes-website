@@ -137,3 +137,7 @@ for ru,en,ka in [
  ('Следующие отзывы','Next reviews','შემდეგი შეფასებები'),
  ('Отзывы гостей','Guest reviews','სტუმრების შეფასებები'),
 ]:pair(ru,en,ka)
+for ru,en,ka in [
+ ('Все отзывы Say Yes на Google ↗','All Say Yes reviews on Google ↗','Say Yes-ის ყველა შეფასება Google-ზე ↗'),
+ ('Все отзывы Say Yes на Яндексе ↗','All Say Yes reviews on Yandex ↗','Say Yes-ის ყველა შეფასება Yandex-ზე ↗'),
+]:pair(ru,en,ka)

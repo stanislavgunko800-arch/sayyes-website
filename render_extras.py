@@ -16,10 +16,11 @@ def enhance(page,esc,cta):
  reviews_data=json.loads((ROOT/'reviews.json').read_text());reviews=reviews_data['items']
  source_names={'google':'Google Maps','yandex':'Яндекс'}
  source_links={'google':GOOGLE,'yandex':reviews_data['sources']['yandex']}
+ source_links_label={'google':'Все отзывы Say Yes на Google ↗','yandex':'Все отзывы Say Yes на Яндексе ↗'}
  def review_card(i,v):
   date=f'<span> · {v["date"]}</span>' if v.get('date') else ''
   paragraphs=''.join(f'<p lang="ru">{esc(x)}</p>' for x in v['text'].split('\n\n'))
-  return f'''<article class="review-card reveal tone-{i%3}"><div class="review-top"><span class="review-mark" aria-hidden="true">“</span><span class="review-source"><span>{source_names[v['source']]}</span>{date}</span></div><div class="review-text">{paragraphs}</div><div class="review-bottom"><b lang="ru">{esc(v['author'])}</b><a href="{esc(source_links[v['source']])}" target="_blank" rel="noopener noreferrer">Все отзывы ↗</a></div></article>'''
+  return f'''<article class="review-card reveal tone-{i%3}"><div class="review-top"><span class="review-mark" aria-hidden="true">“</span><span class="review-source"><span>{source_names[v['source']]}</span>{date}</span></div><div class="review-text">{paragraphs}</div><div class="review-bottom"><b lang="ru">{esc(v['author'])}</b><a href="{esc(source_links[v['source']])}" target="_blank" rel="noopener noreferrer">{source_links_label[v['source']]}</a></div></article>'''
  cards=''.join(review_card(i,v) for i,v in enumerate(reviews))
  review_section=f'''<section id="reviews" class="reviews-section section-pad"><div class="section-meta"><span>ГОСТИ О SAY YES</span><span>СЛОВА, КОТОРЫЕ ГРЕЮТ</span></div><div class="section-heading reveal"><h2>Возвращаются<br><em>за ощущением.</em></h2><p>Реальные отзывы гостей с Google Maps и Яндекса. Если отзыв сокращён, пропуск отмечен многоточием.</p></div><div class="reviews-nav"><button class="reviews-arrow" data-dir="-1" aria-label="Предыдущие отзывы"><span aria-hidden="true">←</span></button><button class="reviews-arrow" data-dir="1" aria-label="Следующие отзывы"><span aria-hidden="true">→</span></button></div><div class="reviews-grid" tabindex="0" role="region" aria-label="Отзывы гостей">{cards}</div><div class="reviews-actions">{cta('Открыть Google Maps',GOOGLE,'button button-outline')}{cta('Оставить отзыв',GOOGLE,'text-link')}</div></section>'''
  page=page.replace('<section id="contacts"',review_section+'\n<section id="contacts"')
