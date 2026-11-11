@@ -4,6 +4,7 @@ import {initScrollScenes} from './scroll-scenes.js';
 import {initVideos} from './video.js';
 import {initSmoothScroll,initTickerVelocity} from './smooth.js';
 import {initCursor} from './cursor.js';
+import {initIntro} from './intro.js';
 
 const content=window.SAYYES_CONTENT;
 const ui=window.SAYYES_UI;
@@ -28,6 +29,7 @@ window.addEventListener('pagehide',clearMotion);
 initVideos(t);
 
 // GSAP owns entrance and scroll animations; native controls remain independent.
+initIntro();
 initSmoothScroll();
 initScrollScenes();
 initTickerVelocity();

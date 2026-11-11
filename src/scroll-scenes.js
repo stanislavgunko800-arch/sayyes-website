@@ -58,10 +58,18 @@ export function initScrollScenes() {
    mask.className='hero-mask';line.before(mask);mask.append(line);
    return mask;
   });
-  const hero=gsap.timeline({defaults:{ease:'power3.out'},onComplete:()=>{
+  // While the brand intro covers the page the hero waits, then starts as the curtain lifts.
+  const waiting=document.documentElement.classList.contains('js-preload');
+  const hero=gsap.timeline({paused:waiting,defaults:{ease:'power3.out'},onComplete:()=>{
    masks.forEach(mask=>mask.classList.add('is-open'));
    stopHero=heroLife(desktop);
   }});
+  if(waiting){
+   const start=()=>hero.play();
+   document.addEventListener('sayyes:intro-exit',start,{once:true});
+   const watcher=new MutationObserver(()=>{if(!document.documentElement.classList.contains('js-preload')){start();watcher.disconnect();}});
+   watcher.observe(document.documentElement,{attributes:true,attributeFilter:['class']});
+  }
   hero.from('.hero-photo',{clipPath:'inset(100% 0% 0% 0%)',duration:1.35,ease:'expo.inOut',clearProps:'clipPath'},0)
    .from('.hero-image',{scale:1.3,duration:2,ease:'expo.out',clearProps:'transform'},0)
    .from('.hero-kicker',{y:12,opacity:0,duration:.7,clearProps:'transform,opacity'},.2)
