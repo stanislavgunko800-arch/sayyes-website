@@ -270,3 +270,9 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
  .mobile-menu .language-switch a[aria-current=page]{background:var(--ink);color:var(--paper)}
 }
 @media(prefers-reduced-motion:reduce){.site-header.is-tucked{transform:none}}
+
+/* Phones: hide any leftover native video chrome on the service films */
+@media(hover:none) and (pointer:coarse){
+ .service-film:not([controls])::-webkit-media-controls,.service-film:not([controls])::-webkit-media-controls-panel,.service-film:not([controls])::-webkit-media-controls-start-playback-button,.service-film:not([controls])::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
+ .service-film:not([controls]){pointer-events:none}
+}

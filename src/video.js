@@ -34,13 +34,19 @@ export function initVideos(t) {
  const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.1});observer.observe(hero);
  // The short service films play silently on a loop while they are on screen and
  // pause when scrolled away. Controls stay available for sound and manual pause.
+ const touch=matchMedia('(hover: none) and (pointer: coarse)');
  const state=new Map();
  const wantsAuto=video=>{const item=state.get(video);return Boolean(item&&item.inView&&!item.userPaused&&permitted()&&!document.hidden);};
- const autoplay=video=>{if(wantsAuto(video)&&video.paused)video.play().catch(()=>{});};
+ const autoplay=video=>{if(wantsAuto(video)&&video.paused)video.play().catch(()=>{video.controls=true;});}; // blocked (e.g. Low Power Mode): bring the controls back
  const pauseQuietly=video=>{const item=state.get(video);if(!video.paused){if(item)item.ours=true;video.pause();}};
  for(const video of others){
   const item={inView:false,userPaused:false,ours:false};state.set(video,item);
   video.muted=true;video.defaultMuted=true;video.loop=true;
+  // On phones the films are pure ambient video: no seek bar, pause or AirPlay chrome.
+  // Controls return whenever autoplay is not allowed or gets blocked.
+  video.disablePictureInPicture=true;video.disableRemotePlayback=true;video.setAttribute?.('x-webkit-airplay','deny');
+  const syncControls=()=>{video.controls=!(touch.matches&&permitted());};
+  syncControls();touch.addEventListener?.('change',syncControls);reduced.addEventListener('change',syncControls);connection?.addEventListener?.('change',syncControls);
   const soloIfLoud=()=>{if(!video.muted)others.forEach(other=>{if(other!==video)other.pause();});};
   video.addEventListener('play',()=>{hero.pause();soloIfLoud();});
   video.addEventListener('volumechange',soloIfLoud);
