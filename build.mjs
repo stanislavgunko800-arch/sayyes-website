@@ -1,8 +1,10 @@
 import {execFileSync} from 'node:child_process';
 import {build} from 'esbuild';
-import {copyFile} from 'node:fs/promises';
+import {cp,readFile,writeFile} from 'node:fs/promises';
 execFileSync('python3',['render.py'],{stdio:'inherit'});
 execFileSync('python3',['locales/generate.py'],{stdio:'inherit'});
 await build({entryPoints:['src/app.js'],outfile:'dist/app.js',bundle:true,minify:true,format:'iife',target:['es2020'],legalComments:'inline'});
-await copyFile('src/style.css','dist/style.css');
+const css=await Promise.all(['fonts','style','polish'].map(n=>readFile(`src/${n}.css`,'utf8')));
+await writeFile('dist/style.css',css.join('\n'));
+await cp('src/fonts','dist/fonts',{recursive:true});
 console.log('Built Say Yes with local Motion, GSAP and ScrollTrigger animations');

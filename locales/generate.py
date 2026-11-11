@@ -33,7 +33,7 @@ class Localize(HTMLParser):
    if key in ['alt','aria-label','title'] or (tag=='meta' and key=='content' and any(k=='name' and v=='description' for k,v in attrs)):value=translate(value,self.lang)
    if tag=='html' and key=='lang':value=self.lang
    if key in ['src','href']:
-    if value.startswith('assets/') or value in ['style.css','app.js']:value='/'+value
+    if value.startswith('assets/') or value.startswith('fonts/') or value in ['style.css','app.js']:value='/'+value
     if value=='content.js':value=f'/{self.lang}/content.js'
     if tag=='iframe' and 'google.com/maps' in value:value+='&hl='+self.lang
    values.append(key+'="'+html.escape(value,quote=True)+'"')
