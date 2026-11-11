@@ -155,3 +155,7 @@ for ru,en,ka in [
  ('КОФЕ','COFFEE','ყავა'),
  ('ЗАБОТА','CARE','ზრუნვა'),
 ]:pair(ru,en,ka)
+for ru,en,ka in [
+ ('Читать целиком','Read the full review','წაიკითხეთ სრულად'),
+ ('Показать все отзывы','Show all reviews','ყველა შეფასების ჩვენება'),
+]:pair(ru,en,ka)

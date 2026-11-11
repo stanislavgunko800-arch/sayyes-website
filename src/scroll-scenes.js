@@ -96,6 +96,11 @@ export function initScrollScenes() {
   gsap.set(masked,{clipPath:'inset(100% 0% 0% 0% round 22px)'});
   ScrollTrigger.batch(masked,{start:'top 92%',once:true,onEnter:batch=>gsap.to(batch,{clipPath:'inset(0% 0% 0% 0% round 22px)',duration:desktop?1.2:.8,ease:'expo.out',stagger:.09,clearProps:'clipPath'})});
 
+  // Review notes get "stuck" onto the board one after another.
+  const notes=[...document.querySelectorAll('.note')].filter(el=>el.getBoundingClientRect().top>=innerHeight);
+  gsap.set(notes,{opacity:0,y:-46,scale:1.06});
+  ScrollTrigger.batch(notes,{start:'top 92%',once:true,onEnter:batch=>gsap.to(batch,{opacity:1,y:0,scale:1,duration:.9,ease:'back.out(1.5)',stagger:.12,clearProps:'transform,opacity'})});
+
   // Count-up numbers (text stays correct without JavaScript or motion).
   const counters=[...document.querySelectorAll('[data-count]')].map(el=>({el,original:el.textContent}));
   for(const {el} of counters){

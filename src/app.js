@@ -55,13 +55,6 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu
 mobileMenu.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const links=[...mobileMenu.querySelectorAll('a')];if(e.shiftKey&&document.activeElement===links[0]){e.preventDefault();menuToggle.focus();}else if(!e.shiftKey&&document.activeElement===links.at(-1)){e.preventDefault();menuToggle.focus();}});
 window.addEventListener('resize',()=>{if(innerWidth>1250)closeMenu();});
 
-// Reviews slider arrows: scroll one card at a time.
-const reviewTrack=document.querySelector('.reviews-grid');
-document.querySelectorAll('.reviews-arrow').forEach(button=>button.addEventListener('click',()=>{
- const card=reviewTrack?.querySelector('.review-card');
- if(card)reviewTrack.scrollBy({left:Number(button.dataset.dir)*(card.offsetWidth+20),behavior:reduced.matches?'auto':'smooth'});
-}));
-
 const ticker=document.querySelector('.ticker'),tickerPause=document.querySelector('.ticker-pause');
 tickerPause.addEventListener('click',()=>{const paused=ticker.classList.toggle('paused');tickerPause.setAttribute('aria-pressed',String(paused));tickerPause.setAttribute('aria-label',paused?t('Запустить бегущую строку'):t('Приостановить бегущую строку'));tickerPause.textContent=paused?'▷':'Ⅱ';});
 
@@ -100,4 +93,16 @@ document.querySelectorAll('[data-service]').forEach(button=>button.addEventListe
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');galleryIndex=null;effects.get(dialog)?.cancel();effects.delete(dialog);});
 dialog.addEventListener('click',e=>{const rect=dialog.getBoundingClientRect();if(e.target===dialog&&(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom))dialog.close();});
+// Guest reviews: sticky notes open as a full-size note in the shared dialog.
+function openNote(note){
+ const link=note.querySelector('.note-bottom a');
+ const tone=(note.className.match(/tone-\d/)||['tone-0'])[0];
+ galleryIndex=null;
+ dialogContent.innerHTML=`<div class="note-dialog ${tone}"><div class="review-source">${note.querySelector('.review-source').innerHTML}</div><div class="note-dialog-text" lang="ru">${note.querySelector('.note-text').innerHTML}</div><h2 id="detail-title" lang="ru">${note.querySelector('.note-bottom b').innerHTML}</h2><a class="text-link" href="${escape(link.getAttribute('href'))}" target="_blank" rel="noopener noreferrer">${escape(link.textContent)}</a></div>`;
+ showDialog();
+}
+document.querySelectorAll('.note').forEach(note=>note.addEventListener('click',event=>{if(!event.target.closest('a'))openNote(note);}));
+const notesBoard=document.querySelector('.notes-board');
+notesBoard?.querySelector('.notes-more')?.addEventListener('click',()=>notesBoard.classList.add('is-open'));
+
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileMenu.hidden){closeMenu();menuToggle.focus();}if(dialog.open&&galleryIndex!==null){if(e.key==='ArrowRight'){e.preventDefault();showGallery(galleryIndex+1);}if(e.key==='ArrowLeft'){e.preventDefault();showGallery(galleryIndex-1);}}});
