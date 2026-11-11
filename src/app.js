@@ -1,4 +1,5 @@
 import {animate} from 'motion/mini';
+import {gsap} from 'gsap';
 import {initScrollScenes} from './scroll-scenes.js';
 import {initVideos} from './video.js';
 import {initSmoothScroll,initTickerVelocity} from './smooth.js';
@@ -62,7 +63,7 @@ function setMenu(id){
  for(const tab of menuTabs){const selected=tab.dataset.menu===id;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;}
  menuPanel.setAttribute('aria-labelledby','tab-'+id);
  menuPanel.innerHTML=group.sections.map(section=>`<section class="menu-category"><h3>${escape(section.title)}</h3><div class="menu-items">${section.items.map(item=>`<article class="menu-item">${group.showImages&&item.image?`<img src="${escape(item.image)}" alt="${escape(item.name)}" loading="lazy" decoding="async">`:''}<div class="menu-item-copy"><div class="menu-item-title"><h4>${escape(item.name)}</h4><strong>${escape(item.price)}</strong></div><p>${escape(item.description)}</p></div></article>`).join('')}</div></section>`).join('');
- motion(menuPanel,{opacity:[.35,1]},{duration:.28});
+ if(!reduced.matches)gsap.from(menuPanel.querySelectorAll('.menu-item'),{y:18,opacity:0,duration:.55,stagger:.04,ease:'power3.out',clearProps:'transform,opacity'});
  document.dispatchEvent(new Event('sayyes:layout'));
  updateScroll();
 }

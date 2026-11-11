@@ -70,6 +70,7 @@ export function initCursor() {
  });
 
  initMagnetic();
+ initTilt();
 }
 
 function initMagnetic() {
@@ -87,5 +88,21 @@ function initMagnetic() {
   element.addEventListener('pointerleave',()=>{
    gsap.to(offset,{x:0,y:0,duration:.9,ease:'elastic.out(1,.45)',overwrite:true,onUpdate:apply,onComplete:()=>{element.style.translate='';}});
   });
+ }
+}
+
+// Service cards tilt towards the pointer and carry a soft light glare.
+function initTilt() {
+ for(const card of document.querySelectorAll('.service-card')){
+  card.addEventListener('pointermove',event=>{
+   if(event.pointerType!=='mouse')return;
+   const box=card.getBoundingClientRect();
+   const px=(event.clientX-box.left)/box.width,py=(event.clientY-box.top)/box.height;
+   card.style.setProperty('--ry',((px-.5)*10).toFixed(2)+'deg');
+   card.style.setProperty('--rx',((.5-py)*8).toFixed(2)+'deg');
+   card.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+   card.style.setProperty('--my',(py*100).toFixed(1)+'%');
+  });
+  card.addEventListener('pointerleave',()=>{card.style.setProperty('--rx','0deg');card.style.setProperty('--ry','0deg');});
  }
 }

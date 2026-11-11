@@ -39,6 +39,8 @@ function heroLife(desktop) {
  };
 }
 
+const MASKED='.service-card,.gallery-item';
+
 export function initScrollScenes() {
  const media=gsap.matchMedia();
  media.add({
@@ -73,10 +75,38 @@ export function initScrollScenes() {
    gsap.to(element,{opacity:1,y:0,duration:desktop?.8:.5,ease:'power3.out',overwrite:'auto',clearProps:'transform,opacity'});
   });
   for(const element of document.querySelectorAll('.reveal')) {
+   if(element.matches(MASKED))continue; // masked cards reveal themselves below
    // Keep above-the-fold content, keyboard focus and no-JS fallback visible.
    if(element.getBoundingClientRect().top<innerHeight)continue;
    gsap.set(element,{opacity:0,y:desktop?28:14});
    ScrollTrigger.create({trigger:element,start:'top 94%',once:true,onEnter:()=>context.enter(element)});
+  }
+
+  // Cards open with a rounded mask as they enter the viewport (clip-path only,
+  // so hover tilt can keep its own transform).
+  const masked=[...document.querySelectorAll(MASKED+',.product>img')].filter(el=>el.getBoundingClientRect().top>=innerHeight);
+  gsap.set(masked,{clipPath:'inset(100% 0% 0% 0% round 22px)'});
+  ScrollTrigger.batch(masked,{start:'top 92%',once:true,onEnter:batch=>gsap.to(batch,{clipPath:'inset(0% 0% 0% 0% round 22px)',duration:desktop?1.2:.8,ease:'expo.out',stagger:.09,clearProps:'clipPath'})});
+
+  // Count-up numbers (text stays correct without JavaScript or motion).
+  const counters=[...document.querySelectorAll('[data-count]')].map(el=>({el,original:el.textContent}));
+  for(const {el} of counters){
+   const end=Number(el.dataset.count),suffix=el.dataset.suffix||'',state={value:0};
+   el.textContent='0'+suffix;
+   ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:()=>gsap.to(state,{value:end,duration:1.8,ease:'power3.out',onUpdate:()=>{el.textContent=Math.round(state.value)+suffix;}})});
+  }
+
+  // Gallery becomes a horizontal strip that drifts sideways while the section scrolls by.
+  const strip=document.querySelector('.gallery-grid');
+  if(desktop&&strip){
+   strip.classList.add('is-strip');
+   const section=strip.parentElement;
+   const distance=()=>{const style=getComputedStyle(section);return Math.max(0,strip.scrollWidth-(section.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight)));};
+   gsap.to(strip,{x:()=>-distance(),ease:'none',scrollTrigger:{trigger:strip,start:'top 88%',end:'bottom 12%',scrub:.7,invalidateOnRefresh:true}});
+   // Soft breathing inside service and gallery photos.
+   for(const image of document.querySelectorAll('.service-card img,.gallery-item img')){
+    gsap.fromTo(image,{yPercent:-7},{yPercent:7,ease:'none',scrollTrigger:{trigger:image.parentElement,start:'top bottom',end:'bottom top',scrub:.6}});
+   }
   }
 
   if(desktop){
@@ -98,7 +128,7 @@ export function initScrollScenes() {
    if(element){gsap.killTweensOf(element);gsap.set(element,{clearProps:'transform,opacity'});}
   };
   document.addEventListener('focusin',showFocused);
-  return ()=>{document.removeEventListener('focusin',showFocused);stopHero();};
+  return ()=>{document.removeEventListener('focusin',showFocused);stopHero();strip?.classList.remove('is-strip');for(const {el,original} of counters)el.textContent=original;};
  });
 
  const refresh=()=>ScrollTrigger.refresh();

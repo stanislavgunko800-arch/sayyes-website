@@ -123,3 +123,9 @@ EXTRAS=[
 ('Мария Иса','Maria Isa','მარია ისა'),('Ольга Кучерова','Olga Kucherova','ოლგა კუჩეროვა'),('Виктория С.','Victoria S.','ვიქტორია ს.'),('Читать оригинал ↗','Read the original ↗','ორიგინალის ნახვა ↗'),('Яндекс · 15.08.2026','Yandex · 15.08.2026','Yandex · 15.08.2026'),('Яндекс · 19.05.2026','Yandex · 19.05.2026','Yandex · 19.05.2026'),('Яндекс · 19.09.2025','Yandex · 19.09.2025','Yandex · 19.09.2025'),
 ('Отзывы','Reviews','შეფასებები'),('Открыть Google Maps','Open Google Maps','Google Maps-ის გახსნა'),('Построить маршрут','Get directions','მარშრუტის დაგეგმვა'),('Ежедневно · 10:00–22:00','Every day · 10:00–22:00','ყოველდღე · 10:00–22:00'),('Say Yes на карте Google','Say Yes on Google Maps','Say Yes Google-ის რუკაზე'),('Карта: Тбилиси, Мераб Костава, 71','Map: 71 Merab Kostava Street, Tbilisi','რუკა: თბილისი, მერაბ კოსტავას ქუჩა 71')]
 for ru,en,ka in EXTRAS:pair(ru,en,ka)
+for ru,en,ka in [
+ ('лет в beauty-индустрии','years in the beauty industry','წელი beauty ინდუსტრიაში'),
+ ('пространства за нашу историю','spaces across our story','სივრცე ჩვენი ისტორიის განმავლობაში'),
+ ('направлений beauty-услуг','beauty service categories','სილამაზის სერვისის მიმართულება'),
+ ('позиции в меню кафе-бара','items on the café-bar menu','პოზიცია კაფე-ბარის მენიუში'),
+]:pair(ru,en,ka)
