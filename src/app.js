@@ -1,6 +1,8 @@
 import {animate} from 'motion/mini';
 import {initScrollScenes} from './scroll-scenes.js';
 import {initVideos} from './video.js';
+import {initSmoothScroll,initTickerVelocity} from './smooth.js';
+import {initCursor} from './cursor.js';
 
 const content=window.SAYYES_CONTENT;
 const ui=window.SAYYES_UI;
@@ -25,7 +27,10 @@ window.addEventListener('pagehide',clearMotion);
 initVideos(t);
 
 // GSAP owns entrance and scroll animations; native controls remain independent.
+initSmoothScroll();
 initScrollScenes();
+initTickerVelocity();
+initCursor();
 let scheduled=false;
 const progress=document.querySelector('.scroll-progress'),header=document.querySelector('.site-header');
 function updateScroll(){const range=document.documentElement.scrollHeight-innerHeight;progress.style.transform=`scaleX(${range?scrollY/range:0})`;header.classList.toggle('scrolled',scrollY>20);scheduled=false;}

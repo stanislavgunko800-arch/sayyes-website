@@ -41,3 +41,31 @@ html[lang=ka] h1,html[lang=ka] h2,html[lang=ka] h3{letter-spacing:-.02em}
 .brand>span{letter-spacing:-.045em;word-spacing:.12em}
 .brand small{white-space:nowrap;font-size:9.5px;letter-spacing:.1em;font-weight:600;word-spacing:0}
 @media(max-width:600px){.brand small{font-size:8.5px;letter-spacing:.06em}}
+
+/* ---- Package A: hero motion, cursor, smooth scroll ---- */
+.hero-mask{display:block;overflow:hidden;padding:.16em .12em .1em;margin:-.16em -.12em -.1em}
+.hero-mask.is-open{overflow:visible}
+.hero-photo{will-change:clip-path}
+
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-scrolling iframe{pointer-events:none}
+
+html.has-cursor,html.has-cursor *{cursor:none!important}
+html.has-cursor dialog,html.has-cursor dialog *,html.has-cursor video[controls],html.has-cursor input,html.has-cursor textarea,html.has-cursor select,html.has-cursor iframe{cursor:auto!important}
+html.has-cursor dialog button,html.has-cursor dialog a{cursor:pointer!important}
+.cursor,.cursor-dot{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;transition:opacity .25s}
+.cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--ink);transition:opacity .25s,transform .25s var(--ease)}
+.cursor-ring{position:absolute;left:0;top:0;translate:-50% -50%;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid #242722a6;font:700 11px/1.15 var(--sans);letter-spacing:.08em;text-transform:uppercase;text-align:center;color:var(--ink);transition:width .45s var(--ease),height .45s var(--ease),background-color .3s,border-color .3s,scale .25s var(--ease)}
+.cursor-label{opacity:0;max-width:70px;transition:opacity .25s}
+html.cursor-hidden .cursor,html.cursor-hidden .cursor-dot{opacity:0}
+html[data-cursor=hover] .cursor-ring{width:72px;height:72px;background:#ecd9a073;border-color:transparent;backdrop-filter:blur(1.5px)}
+html[data-cursor=hover] .cursor-dot{transform:scale(0)}
+html[data-cursor=media] .cursor-ring{width:108px;height:108px;background:#f4f1ebe6;border-color:transparent;backdrop-filter:blur(8px)}
+html[data-cursor=media] .cursor-dot{transform:scale(0)}
+html[data-cursor=media] .cursor-label{opacity:1}
+html.cursor-down .cursor-ring{scale:.86}
+
+@media(prefers-reduced-motion:reduce){.hero-mask{overflow:visible}}
