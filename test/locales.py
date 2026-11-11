@@ -3,14 +3,16 @@ from html.parser import HTMLParser
 import re,json
 ROOT=Path(__file__).resolve().parent.parent
 class Page(HTMLParser):
- def __init__(self):super().__init__();self.attrs=[];self.text=[];self.script=False
+ def __init__(self):super().__init__();self.attrs=[];self.text=[];self.script=False;self.original=[]
  def handle_starttag(self,tag,attrs):
   self.attrs.append((tag,dict(attrs)))
+  if tag!='html' and ('lang','ru') in attrs:self.original.append(tag)
   if tag=='script':self.script=True
  def handle_endtag(self,tag):
   if tag=='script':self.script=False
+  if self.original and self.original[-1]==tag:self.original.pop()
  def handle_data(self,s):
-  if not self.script:self.text.append(s)
+  if not self.script and not self.original:self.text.append(s)
 def values(v):
  if isinstance(v,dict):
   for k,x in v.items():

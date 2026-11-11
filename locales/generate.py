@@ -24,9 +24,11 @@ def data_translate(value,lang,key=None):
  return value
 
 class Localize(HTMLParser):
- def __init__(self,lang):super().__init__(convert_charrefs=True);self.lang=lang;self.output=[]
+ def __init__(self,lang):super().__init__(convert_charrefs=True);self.lang=lang;self.output=[];self.original=[]
  def handle_decl(self,s):self.output.append('<!'+s+'>')
  def handle_starttag(self,tag,attrs):
+  # Guest reviews are quoted verbatim in their original language (lang="ru").
+  if tag!='html' and ('lang','ru') in attrs:self.original.append(tag)
   values=[]
   for key,value in attrs:
    if value is None:values.append(key);continue
@@ -38,8 +40,10 @@ class Localize(HTMLParser):
     if tag=='iframe' and 'google.com/maps' in value:value+='&hl='+self.lang
    values.append(key+'="'+html.escape(value,quote=True)+'"')
   self.output.append('<'+tag+(' '+' '.join(values) if values else '')+'>')
- def handle_endtag(self,t):self.output.append('</'+t+'>')
- def handle_data(self,text):self.output.append(html.escape(translate(text,self.lang),quote=False))
+ def handle_endtag(self,t):
+  self.output.append('</'+t+'>')
+  if self.original and self.original[-1]==t:self.original.pop()
+ def handle_data(self,text):self.output.append(html.escape(text if self.original else translate(text,self.lang),quote=False))
  def handle_comment(self,s):self.output.append('<!--'+s+'-->')
 
 base=(ROOT/'dist/index.html').read_text()

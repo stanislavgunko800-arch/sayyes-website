@@ -129,3 +129,11 @@ for ru,en,ka in [
  ('направлений beauty-услуг','beauty service categories','სილამაზის სერვისის მიმართულება'),
  ('позиции в меню кафе-бара','items on the café-bar menu','პოზიცია კაფე-ბარის მენიუში'),
 ]:pair(ru,en,ka)
+for ru,en,ka in [
+ ('Реальные отзывы гостей с Google Maps и Яндекса. Если отзыв сокращён, пропуск отмечен многоточием.','Real guest reviews from Google Maps and Yandex. Where a review is shortened, the cut is marked with an ellipsis.','სტუმრების რეალური შეფასებები Google Maps-იდან და Yandex-იდან. თუ შეფასება შემოკლებულია, გამოტოვებული ადგილი მრავალწერტილით არის აღნიშნული.'),
+ ('Все отзывы ↗','All reviews ↗','ყველა შეფასება ↗'),
+ ('Яндекс','Yandex','Yandex'),
+ ('Предыдущие отзывы','Previous reviews','წინა შეფასებები'),
+ ('Следующие отзывы','Next reviews','შემდეგი შეფასებები'),
+ ('Отзывы гостей','Guest reviews','სტუმრების შეფასებები'),
+]:pair(ru,en,ka)

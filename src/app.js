@@ -55,6 +55,13 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu
 mobileMenu.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const links=[...mobileMenu.querySelectorAll('a')];if(e.shiftKey&&document.activeElement===links[0]){e.preventDefault();menuToggle.focus();}else if(!e.shiftKey&&document.activeElement===links.at(-1)){e.preventDefault();menuToggle.focus();}});
 window.addEventListener('resize',()=>{if(innerWidth>1250)closeMenu();});
 
+// Reviews slider arrows: scroll one card at a time.
+const reviewTrack=document.querySelector('.reviews-grid');
+document.querySelectorAll('.reviews-arrow').forEach(button=>button.addEventListener('click',()=>{
+ const card=reviewTrack?.querySelector('.review-card');
+ if(card)reviewTrack.scrollBy({left:Number(button.dataset.dir)*(card.offsetWidth+20),behavior:reduced.matches?'auto':'smooth'});
+}));
+
 const ticker=document.querySelector('.ticker'),tickerPause=document.querySelector('.ticker-pause');
 tickerPause.addEventListener('click',()=>{const paused=ticker.classList.toggle('paused');tickerPause.setAttribute('aria-pressed',String(paused));tickerPause.setAttribute('aria-label',paused?t('Запустить бегущую строку'):t('Приостановить бегущую строку'));tickerPause.textContent=paused?'▷':'Ⅱ';});
 
