@@ -145,3 +145,44 @@ html[data-cursor=media] .cursor-label{opacity:1}
 html.cursor-down .cursor-ring{scale:.86}
 
 @media(prefers-reduced-motion:reduce){.hero-mask{overflow:visible}}
+
+/* ---- CTA buttons: Записаться / Выбрать мастера / Что сегодня в меню ---- */
+.cta-book,.cta-master,.cta-menu{position:relative;overflow:hidden;isolation:isolate;gap:12px;justify-content:flex-start}
+.cta-icon{display:grid;place-items:center;width:30px;height:30px;flex-shrink:0;border-radius:50%;background:#ffffff1f;font-style:normal;transition:transform .45s var(--ease),background .3s var(--ease)}
+.cta-icon svg{display:block}
+.cta-icon+span{flex:1;text-align:left}
+.cta-book::after,.cta-master::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(105deg,transparent 35%,#ffffff3d 50%,transparent 65%);transform:translateX(-135%);transition:transform .95s var(--ease)}
+@media(hover:hover){.cta-book:hover::after,.cta-master:hover::after{transform:translateX(135%)}.cta-master:hover .cta-icon,.cta-menu:hover .cta-icon{transform:rotate(-12deg) scale(1.08)}}
+
+/* live "online booking" dot */
+.cta-icon.cta-pulse{width:14px;height:14px;background:none}
+.cta-pulse::before{content:'';width:9px;height:9px;border-radius:50%;background:#9be29b;box-shadow:0 0 0 0 #9be29b99;animation:cta-pulse 2.2s ease-out infinite}
+@keyframes cta-pulse{0%{box-shadow:0 0 0 0 #9be29baa}70%{box-shadow:0 0 0 9px #9be29b00}100%{box-shadow:0 0 0 0 #9be29b00}}
+.button-small.cta-book{gap:10px;padding:9px 9px 9px 16px}
+.mobile-booking .cta-icon{margin-right:2px}
+.mobile-booking{gap:10px}
+
+/* "Choose your master": the main call to action */
+.button.cta-master:not(.button-outline){min-height:64px;padding:11px 12px 11px 12px;gap:14px;font-size:15px;font-weight:700;color:#262822;border-color:#ffffff73;background:linear-gradient(160deg,#f5e7b8,var(--butter-2));box-shadow:inset 0 1px 0 #ffffff80,0 18px 30px -16px #8d7a3a99}
+.cta-master .cta-icon{width:40px;height:40px;background:#262822;color:#f3e3b0}
+.cta-master>span:last-child{background:#2628221a}
+@media(hover:hover){.button.cta-master:not(.button-outline):hover{background:linear-gradient(160deg,#f8ecc6,#e8d28f);box-shadow:inset 0 1px 0 #ffffff99,0 24px 36px -16px #8d7a3acc}}
+
+/* "What's on the menu today?": coffee-flavoured outline button */
+.button.cta-menu{min-height:58px;padding:9px 10px 9px 10px;gap:12px;font-weight:700;border-color:#24272240}
+.cta-menu .cta-icon{width:40px;height:40px;background:var(--butter);color:#262822}
+.cta-menu .steam{stroke-dasharray:3 3;animation:cta-steam 2.6s linear infinite}
+@keyframes cta-steam{to{stroke-dashoffset:-12}}
+@media(hover:hover){.button.cta-menu:hover{background:linear-gradient(160deg,#f5e7b8,var(--butter-2));border-color:transparent;color:#262822;box-shadow:0 18px 30px -16px #8d7a3a99}.cta-menu:hover .cta-icon{background:#262822;color:var(--butter)}}
+
+/* ---- Reviews: colourful cards, optional real photo ---- */
+.reviews-grid{gap:20px}
+.review-card{border-radius:26px;padding:30px;border:1px solid #2427221a;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.review-card.tone-0{background:#f6ebc9}
+.review-card.tone-1{background:#dde5d3}
+.review-card.tone-2{background:#f1d9cd}
+.review-mark{font:italic 74px/.6 var(--serif);color:var(--accent);height:34px;overflow:visible}
+.review-card>p{font-size:17px;line-height:1.55;font-weight:500;color:var(--ink)}
+.review-photo{width:calc(100% + 0px);aspect-ratio:4/3;object-fit:cover;border-radius:18px;margin:0 0 20px}
+@media(hover:hover){.review-card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 26px 40px -26px #24272299}}
+@media(max-width:600px){.button.cta-master:not(.button-outline){min-height:62px}.review-card{border-radius:22px;padding:24px}}

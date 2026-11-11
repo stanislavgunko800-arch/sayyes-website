@@ -6,7 +6,17 @@ def esc(s):return html.escape(clean(s))
 def img(path,alt='',cls='',eager=False):
  return f'<img src="{mapping[path]}" alt="{esc(alt)}" class="{cls}" loading="{"eager" if eager else "lazy"}" decoding="async"'+(' fetchpriority="high"' if eager else '')+'>'
 def arrow():return '<span aria-hidden="true">↗</span>'
-def cta(label,href='https://dikidi.ru/887914',cls='button',new=True):return f'<a class="{cls}" href="{href}"'+(' target="_blank" rel="noopener noreferrer"' if new else '')+f'><span>{label}</span>{arrow()}</a>'
+def _svg(body):return '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+body+'</svg>'
+CTA_STYLES={
+ 'Записаться':('cta-book','<i class="cta-icon cta-pulse" aria-hidden="true"></i>'),
+ 'Выбрать время':('cta-book','<i class="cta-icon">'+_svg('<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15l2 2 4-4"/>')+'</i>'),
+ 'Выбрать своего мастера':('cta-master','<i class="cta-icon">'+_svg('<circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8l12 9M8 16L20 7"/>')+'</i>'),
+ 'Что сегодня в меню?':('cta-menu','<i class="cta-icon">'+_svg('<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path class="steam" d="M8.5 3.5c0 1.4 1.4 1.4 1.4 2.8M12 3.5c0 1.4 1.4 1.4 1.4 2.8"/>')+'</i>'),
+}
+def cta(label,href='https://dikidi.ru/887914',cls='button',new=True):
+ style,icon=CTA_STYLES.get(label,('',''))
+ if style:cls+=' '+style
+ return f'<a class="{cls}" href="{href}"'+(' target="_blank" rel="noopener noreferrer"' if new else '')+f'>{icon}<span>{label}</span>{arrow()}</a>'
 intro_images=d['menuIntro']['images']
 features=''.join(f'<div class="fact"><span class="fact-icon" aria-hidden="true">{x}</span><h3>{esc(v["label"])}</h3><p>{esc(v["text"])}</p></div>' for x,v in zip(['✂','⌖','♡','✧'],d['highlights']))
 services=''.join(f'''<button class="service-card reveal" data-service="{i}" aria-haspopup="dialog">
