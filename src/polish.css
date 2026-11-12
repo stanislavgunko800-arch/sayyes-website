@@ -295,3 +295,10 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 @media(prefers-reduced-motion:reduce){.coffee-copy .button.menu-blob{animation:none}}
 
 
+
+/* ---- Maltipoo peeking out of the pet-friendly card ---- */
+.info-pet{overflow:hidden}
+.info-pet p{max-width:62%}
+.maltipoo{position:absolute;right:-8px;bottom:-16px;width:112px;height:112px;transform-origin:50% 90%;transform:rotate(-6deg);transition:transform .6s var(--ease);filter:drop-shadow(0 8px 10px #1c1f1b26)}
+@media(hover:hover){.info-pet:hover .maltipoo{transform:rotate(5deg) translateY(-6px) scale(1.05)}}
+@media(max-width:600px){.info-pet p{max-width:58%}.maltipoo{width:100px;height:100px}}
