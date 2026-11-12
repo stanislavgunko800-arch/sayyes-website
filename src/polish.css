@@ -319,3 +319,8 @@ h3{font-weight:700;letter-spacing:0}
 .menu-category>h3{font-weight:700;font-size:34px}
 .founder blockquote{font-family:var(--sans);font-weight:600}
 .story-step h3,.product h3{letter-spacing:0;font-size:28px}
+
+/* ---- WhatsApp shortcut next to the booking button (desktop only) ---- */
+.header-contact{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .25s var(--ease),transform .25s var(--ease)}
+@media(hover:hover){.header-contact:hover{background:var(--butter);transform:scale(1.06)}}
+@media(max-width:600px){.header-contact{display:none!important}}
