@@ -499,12 +499,40 @@ img,video{filter:contrast(1.07) saturate(.9)}
 .coffee-copy .button.menu-blob>span:last-child{background:var(--ink)!important;border-radius:50%!important}
 @media(hover:hover){.coffee-copy .button.menu-blob:hover{background:var(--terracotta)!important;box-shadow:3px 3px 0 var(--ink)!important}}
 
-/* --- review board: pinned paper, no softness --- */
-.notes-board{border-radius:2px!important;background:#ddd2bd!important;border:2px solid var(--ink)}
-.note{border-radius:1px!important;box-shadow:3px 4px 0 #15110f55!important}
-.note-tape{background:#d7bd8fcc!important;border:0!important;box-shadow:none!important}
+/* --- reviews: zine / photocopy collage pinned on a dark board --- */
+.notes-board{border-radius:0!important;background-color:#25211f!important;background-image:radial-gradient(#f5f2eb1f 1.2px,transparent 1.6px)!important;background-size:22px 22px!important;border:2px solid var(--ink)!important;box-shadow:8px 8px 0 var(--ink)!important;padding:clamp(34px,4.5vw,64px)!important}
+.note{border-radius:0!important;border:2px solid var(--ink);box-shadow:5px 6px 0 #000!important;padding:34px 24px 22px!important;color:var(--ink)}
+.note.tone-0{background:var(--porcelain)!important}
+.note.tone-1{background:var(--champagne)!important}
+.note.tone-2{background:#ece3d2!important}
+.note.tone-3{background:var(--rose)!important;color:var(--porcelain)}
+.note.tone-3 .note-text,.note.tone-3 .note-bottom b,.note.tone-3 .note-bottom a,.note.tone-3 .review-source,.note.tone-3 .note-mark{color:var(--porcelain)!important}
+.note.tone-3 .note-bottom{border-top-color:#fffaf290!important}
+.note.tone-3 .note-more{background:var(--porcelain);color:var(--ink)}
+.note:nth-child(3n+1){background-image:repeating-linear-gradient(0deg,transparent 0 27px,#15110f12 27px 28px)}
+.note-tape{top:-15px!important;height:30px!important;border:0!important;background:#c8a97099!important;box-shadow:none!important;backdrop-filter:none!important;clip-path:polygon(0 12%,4% 0,9% 14%,14% 2%,100% 0,97% 30%,100% 55%,96% 80%,100% 100%,8% 96%,4% 82%,0 100%,3% 55%,0 35%)}
+.note-mark{font:700 90px/.5 var(--display)!important;color:var(--rose)!important;height:34px!important}
+.note-text{font:500 clamp(16px,1.25vw,18px)/1.45 var(--sans)!important;color:inherit}
+.note-bottom{border-top:2px solid var(--ink)!important;border-top-style:solid!important}
+.note-bottom b{font:700 20px/1.1 var(--display)!important;text-transform:uppercase;letter-spacing:.04em}
+.note-bottom a{font-weight:700;letter-spacing:.02em}
+.review-source{display:inline-block;border:2px solid currentColor;padding:3px 8px;font:700 11px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;rotate:-2deg}
+.note-more{border-radius:0!important;border:2px solid var(--ink);background:var(--ink)!important;color:var(--porcelain)!important;text-transform:uppercase;letter-spacing:.08em;font-family:var(--display)!important;box-shadow:2px 2px 0 #00000066}
+.note-more:hover{background:var(--rose)!important}
+@media(hover:hover){.note:hover{rotate:0deg;translate:-2px -8px;box-shadow:9px 11px 0 #000!important}}
+.notes-more{border-radius:0!important;border:2px solid var(--porcelain);background:var(--champagne)!important;color:var(--ink)!important;text-transform:uppercase;letter-spacing:.08em;font-family:var(--display)!important;box-shadow:4px 4px 0 #000}
+@media(max-width:800px){.notes-board{padding:36px 16px 26px!important}.note-text{font-size:17px!important}}
+.reviews-actions .button{box-shadow:var(--hard)!important}
 
 /* --- dialogs --- */
+dialog.note-dialog,.note-dialog{border-radius:0!important}
 dialog{border-radius:2px!important;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
 .dialog-close{border-radius:2px!important;border:2px solid var(--ink)}
 .gallery-section h2 em{color:var(--ink)!important}
+
+.note-dialog{border:2px solid var(--ink)!important;box-shadow:10px 10px 0 var(--ink)!important;background:var(--porcelain)!important}
+.note-dialog.tone-1{background:var(--champagne)!important}.note-dialog.tone-2{background:#ece3d2!important}
+.note-dialog.tone-3{background:var(--rose)!important;color:var(--porcelain)}
+.note-dialog.tone-3 .note-dialog-text,.note-dialog.tone-3 h2,.note-dialog.tone-3 .text-link,.note-dialog.tone-3 .review-source{color:var(--porcelain)!important}
+.note-dialog-text{font:500 clamp(18px,2vw,21px)/1.5 var(--sans)!important}
+.note-dialog h2{font:700 24px/1.1 var(--display)!important;text-transform:uppercase}
