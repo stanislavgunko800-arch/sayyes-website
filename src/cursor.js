@@ -5,7 +5,7 @@ import {gsap} from 'gsap';
 const fine=matchMedia('(hover: hover) and (pointer: fine)');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 
-const HOVER='a,button,[role=tab],.service-card,.gallery-item,summary,label[for]';
+const HOVER='a,button,[role=tab],.gallery-item,summary,label[for]';
 const NATIVE='dialog,video[controls],input,textarea,select,iframe';
 
 export function initCursor() {
@@ -61,7 +61,7 @@ export function initCursor() {
  window.addEventListener('blur',()=>setShown(false));
 
  initMagnetic();
- initTilt();
+ 
 }
 
 function initMagnetic() {

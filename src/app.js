@@ -78,7 +78,7 @@ if(bookingPill){
   for(const entry of entries)entry.isIntersecting?seen.add(entry.target):seen.delete(entry.target);
   bookingPill.classList.toggle('is-away',seen.size>0);
  },{rootMargin:'0px 0px -8% 0px'});
- document.querySelectorAll('.hero-buttons,.beauty .section-heading .button,.cta-master,.reviews-actions,.contacts-section').forEach(el=>watcher.observe(el));
+ document.querySelectorAll('.hero-buttons,.services-cta,.cta-master,.reviews-actions,.contacts-section').forEach(el=>watcher.observe(el));
 }
 
 const menuToggle=document.querySelector('.menu-toggle'),mobileMenu=document.querySelector('#mobile-menu');
