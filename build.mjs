@@ -7,5 +7,5 @@ await build({entryPoints:['src/app.js'],outfile:'dist/app.js',bundle:true,minify
 const css=await Promise.all(['fonts','style','polish','grunge'].map(n=>readFile(`src/${n}.css`,'utf8')));
 await writeFile('dist/style.css',css.join('\n'));
 await cp('src/fonts','dist/fonts',{recursive:true});
-await cp('public','dist',{recursive:true}); // robots.txt + _headers (no indexing while the site is a preview)
+await cp("public","dist",{recursive:true}); // static files (og image, pet photo)
 console.log('Built Say Yes with local Motion, GSAP and ScrollTrigger animations');
