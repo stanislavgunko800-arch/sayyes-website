@@ -82,11 +82,6 @@ h2 em{color:var(--rose)!important}
 .info-pet .info-icon{background:var(--mint)!important}
 .info-icon{border-radius:50%!important}
 @media(hover:hover){.info-card:hover{transform:translateY(-4px);box-shadow:0 26px 44px -26px #15110f77}}
-.info-pet{padding-top:34px}
-.info-pet .info-icon{position:relative;overflow:visible!important;width:104px;height:104px;border-radius:26px!important;rotate:0;box-shadow:none}
-.info-pet .info-icon img.maltipoo{position:absolute;left:50%;bottom:-2px;width:auto;height:136px;max-width:none;object-fit:contain;translate:-50% 0;transform-origin:50% 100%;
- filter:brightness(1.3) contrast(1.03) drop-shadow(1.5px 0 0 #fffaf2) drop-shadow(-1.5px 0 0 #fffaf2) drop-shadow(0 1.5px 0 #fffaf2) drop-shadow(0 -1.5px 0 #fffaf2) drop-shadow(0 8px 10px #15110f33);transition:transform .5s var(--ease)}
-@media(hover:hover){.info-pet:hover .info-icon img.maltipoo{transform:rotate(5deg) scale(1.05)}}
 
 /* about: six quiet numbered lines */
 .feature-list{gap:0 36px!important;margin-top:30px!important}
