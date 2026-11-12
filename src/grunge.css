@@ -89,6 +89,8 @@ img,video{filter:contrast(1.07) saturate(.9)}
 @media(hover:hover){.info-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}}
 .feature-list li{border:1.5px solid var(--ink)!important;border-radius:2px!important;background:var(--porcelain)!important}
 .maltipoo{filter:none}
+.info-pet{overflow:visible}
+.info-pet .info-icon{background:var(--mint)!important;border:2px solid var(--ink)}
 
 /* --- menu CTA splat: flat rose, inked outline --- */
 .coffee-copy .button.menu-blob{background:var(--rose)!important;color:var(--porcelain)!important;border:2px solid var(--ink)!important;box-shadow:6px 6px 0 var(--ink)!important;font-size:21px;text-transform:uppercase}

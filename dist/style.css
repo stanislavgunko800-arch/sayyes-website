@@ -372,34 +372,10 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 
 
 
-/* ---- Maltipoo peeking out of the pet-friendly card ---- */
-.info-pet{overflow:hidden}
-.info-pet p{max-width:62%}
-.maltipoo{position:absolute;right:-8px;bottom:-16px;width:112px;height:112px;transform-origin:50% 90%;transform:rotate(-6deg);transition:transform .6s var(--ease);filter:drop-shadow(0 8px 10px #1c1f1b26)}
-@media(hover:hover){.info-pet:hover .maltipoo{transform:rotate(5deg) translateY(-6px) scale(1.05)}}
-@media(max-width:600px){.info-pet p{max-width:58%}.maltipoo{width:100px;height:100px}}
-
-/* ---- Display type: condensed bold headlines, Inter for reading text ---- */
-h1,h2,h3,h4,.brand>span,.footer-wordmark,.hero-script,.stat b,.menu-category>h3,.info-card h3,.service-copy>span:first-child,.product h3,.detail-copy h2,.gallery-caption b,.story-step h3,.menu-item h4,.coffee-mini em,.hand-note,.image-tag,.founder-image>span,.contacts-sign{font-family:var(--display)}
-h1,.hero h1{font-weight:700;letter-spacing:-.015em;line-height:.8}
-.hero h1{font-size:clamp(130px,19vw,290px);margin-left:-6px}
-h2{font-weight:700;letter-spacing:-.012em;line-height:1.02;font-size:clamp(46px,5.6vw,92px)}
-h2 em{font-weight:700;letter-spacing:inherit}
-h3{font-weight:700;letter-spacing:0}
-.brand>span{font-weight:700;letter-spacing:-.01em;font-size:26px}
-.footer-wordmark{font-weight:700;letter-spacing:-.02em}
-.hero-script{font-weight:700;letter-spacing:0;font-size:clamp(50px,6vw,92px)}
-.info-card h3{font-size:21px;letter-spacing:0}
-.service-copy>span:first-child{font-weight:700;font-size:26px}
-.stat b{font-weight:700;letter-spacing:0}
-.menu-category>h3{font-weight:700;font-size:34px}
-.founder blockquote{font-family:var(--sans);font-weight:600}
-.story-step h3,.product h3{letter-spacing:0;font-size:28px}
-
-/* ---- WhatsApp shortcut next to the booking button (desktop only) ---- */
-.header-contact{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .25s var(--ease),transform .25s var(--ease)}
-@media(hover:hover){.header-contact:hover{background:var(--butter);transform:scale(1.06)}}
-@media(max-width:600px){.header-contact{display:none!important}}
+/* ---- Maltipoo portrait in the pet-friendly square ---- */
+.info-pet .info-icon{width:92px;height:92px;overflow:hidden;padding:0;border-radius:2px}
+.info-pet .info-icon svg.maltipoo{width:100%;height:100%;margin-top:4px}
+.info-pet p{max-width:none}
 
 /* ===== GRUNGE LAYER =====
    Raw, a little rough, not glossy. Palette taken from say-yes-space.com:
@@ -492,6 +468,8 @@ img,video{filter:contrast(1.07) saturate(.9)}
 @media(hover:hover){.info-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}}
 .feature-list li{border:1.5px solid var(--ink)!important;border-radius:2px!important;background:var(--porcelain)!important}
 .maltipoo{filter:none}
+.info-pet{overflow:visible}
+.info-pet .info-icon{background:var(--mint)!important;border:2px solid var(--ink)}
 
 /* --- menu CTA splat: flat rose, inked outline --- */
 .coffee-copy .button.menu-blob{background:var(--rose)!important;color:var(--porcelain)!important;border:2px solid var(--ink)!important;box-shadow:6px 6px 0 var(--ink)!important;font-size:21px;text-transform:uppercase}
