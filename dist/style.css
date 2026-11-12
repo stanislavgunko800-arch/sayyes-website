@@ -357,7 +357,8 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 .menu-contact .quick-contact{margin:0}
 
 /* ---- Pet-friendly dropdown (inside the "about" text) ---- */
-.pet-note{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:#ffffff55;overflow:hidden;max-width:440px}
+.fact-drops{margin-top:24px;display:grid;gap:10px;max-width:460px}
+.pet-note{margin:0;border:1px solid var(--line);border-radius:18px;background:#ffffff55;overflow:hidden;max-width:440px}
 .pet-note summary{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;list-style:none;font-size:13px;font-weight:600;min-height:48px}
 .pet-note summary::-webkit-details-marker{display:none}
 .pet-note summary::first-letter{text-transform:uppercase}
