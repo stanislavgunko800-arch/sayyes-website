@@ -96,19 +96,6 @@ export function initScrollScenes() {
   gsap.set(masked,{clipPath:'inset(100% 0% 0% 0% round 22px)'});
   ScrollTrigger.batch(masked,{start:'top 92%',once:true,onEnter:batch=>gsap.to(batch,{clipPath:'inset(0% 0% 0% 0% round 22px)',duration:desktop?1.2:.8,ease:'expo.out',stagger:.09,clearProps:'clipPath'})});
 
-  // The statement lights up word by word while it scrolls through the screen.
-  const statement=document.querySelector('.statement-text');
-  const statementText=statement?.textContent||'';
-  if(statement){
-   statement.textContent='';
-   const words=statementText.split(/(\s+)/).map(part=>{
-    if(!part.trim())return document.createTextNode(part);
-    const word=document.createElement('span');word.className='sw';word.textContent=part;return word;
-   });
-   statement.append(...words);
-   gsap.fromTo(statement.querySelectorAll('.sw'),{opacity:.13},{opacity:1,ease:'none',stagger:.12,scrollTrigger:{trigger:statement,start:'top 86%',end:'bottom 52%',scrub:.5}});
-  }
-
   // Review notes get "stuck" onto the board one after another.
   const notes=[...document.querySelectorAll('.note')].filter(el=>el.getBoundingClientRect().top>=innerHeight);
   gsap.set(notes,{opacity:0,y:-46,scale:1.06});
@@ -154,7 +141,7 @@ export function initScrollScenes() {
    if(element){gsap.killTweensOf(element);gsap.set(element,{clearProps:'transform,opacity'});}
   };
   document.addEventListener('focusin',showFocused);
-  return ()=>{document.removeEventListener('focusin',showFocused);stopHero();if(statement)statement.textContent=statementText;strip?.classList.remove('is-strip');for(const {el,original} of counters)el.textContent=original;};
+  return ()=>{document.removeEventListener('focusin',showFocused);stopHero();strip?.classList.remove('is-strip');for(const {el,original} of counters)el.textContent=original;};
  });
 
  const refresh=()=>ScrollTrigger.refresh();

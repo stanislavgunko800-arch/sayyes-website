@@ -336,37 +336,36 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 .founder blockquote{font-weight:500;letter-spacing:-.03em}
 .menu-category>h3{font-weight:600}
 
-/* ---- Statement band (replaces the running line) ---- */
-.statement{max-width:2000px;margin:auto;padding:clamp(80px,11vw,170px) 6% clamp(64px,8vw,120px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(30px,4vw,56px)}
-.statement-text{font:700 clamp(36px,6.2vw,104px)/1.04 var(--sans);letter-spacing:-.05em;max-width:16em;white-space:normal;text-wrap:balance}
-.statement-text .sw{display:inline-block;will-change:opacity}
-.statement-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
-.statement-actions .quick-contact{margin:0}
+/* ---- About: four info cards + tag chips ---- */
+.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.info-card{position:relative;padding:22px 22px 24px;border-radius:26px;display:flex;flex-direction:column;gap:10px;min-height:178px;transition:transform .5s var(--ease),box-shadow .4s var(--ease),border-radius .6s var(--ease)}
+.info-card h3{font:700 17px/1.2 var(--sans);letter-spacing:-.02em;max-width:15em}
+.info-card h3::first-letter{text-transform:uppercase}
+.info-card p{font-size:13px;line-height:1.6;opacity:.82}
+.info-card p::first-letter{text-transform:uppercase}
+.info-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;margin-bottom:6px;transition:transform .5s var(--ease)}
+.info-icon svg{width:22px;height:22px}
+.info-team{background:#1c1f1b;color:#f4f1eb;border-radius:26px 26px 90px 26px}
+.info-team .info-icon{background:var(--butter);color:#1c1f1b}
+.info-place{background:linear-gradient(160deg,#f3e3b0,var(--butter-2));color:#262822;border-radius:26px 90px 26px 26px}
+.info-place .info-icon{background:#262822;color:var(--butter)}
+.info-promise{background:var(--sage);color:#262822;border-radius:26px 26px 26px 90px}
+.info-promise .info-icon{background:var(--sage-dd);color:#f4f1eb}
+.info-pet{background:#ffffff80;border:1.5px dashed #24272255;color:#262822;border-radius:90px 26px 26px 26px}
+.info-pet .info-icon{background:var(--butter);color:#262822}
+@media(hover:hover){.info-card:hover{transform:translateY(-5px);box-shadow:0 24px 36px -22px #1c1f1b66}.info-card:hover .info-icon{transform:rotate(-10deg) scale(1.1)}}
+.feature-list{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important;margin-top:22px!important}
+.feature-list li{padding:11px 14px;border:1px solid var(--line);border-radius:16px;align-items:center;font-size:12px;line-height:1.3;background:#ffffff40}
+.feature-list li span{font-size:13px}
+@media(max-width:600px){.feature-list{grid-template-columns:1fr}.about-facts{grid-template-columns:1fr}.info-card{min-height:0}}
 
-/* ---- Quick contacts next to booking buttons ---- */
-.quick-contact{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:16px;font-size:12px;color:var(--muted)}
-.quick-contact span{margin-right:2px}
-.quick-contact a{display:inline-flex;align-items:center;min-height:36px;padding:0 15px;border:1px solid var(--line);border-radius:100px;color:var(--ink);font-size:12px;font-weight:600;transition:background .25s var(--ease),border-color .25s,transform .25s var(--ease)}
-@media(hover:hover){.quick-contact a:hover{background:var(--butter);border-color:transparent;transform:translateY(-1px)}}
-.section-heading .quick-contact{margin-top:14px}
-.hero-contact{margin-top:14px}
-.header-contact{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .25s var(--ease),transform .25s var(--ease)}
-@media(hover:hover){.header-contact:hover{background:var(--butter);transform:scale(1.06)}}
-@media(max-width:600px){.header-contact{display:none}}
-.menu-contact{margin-top:26px}
-.menu-contact .quick-contact{margin:0}
+/* ---- "What's on the menu today?" as an inky blob ---- */
+.coffee-copy .button.menu-blob{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:clamp(200px,17vw,240px);height:clamp(190px,16vw,220px);min-height:0;padding:18px 26px;margin-top:30px;text-align:center;font-size:17px;line-height:1.15;font-weight:700;letter-spacing:-.02em;color:#f7f4ec;border:0;background:radial-gradient(circle at 30% 25%,#7a8f72,var(--sage-dd) 62%,#2f3d2d);border-radius:58% 42% 55% 45%/52% 58% 42% 48%;box-shadow:0 26px 40px -24px #1c1f1bb3,inset 0 2px 0 #ffffff26;transform:rotate(-5deg);animation:blob-morph 9s ease-in-out infinite;transition:transform .6s var(--ease),box-shadow .4s var(--ease)}
+.coffee-copy .button.menu-blob .cta-icon{width:54px;height:54px;background:var(--butter);color:#262822}
+.coffee-copy .button.menu-blob .cta-icon svg{width:26px;height:26px}
+.coffee-copy .button.menu-blob>span:last-child{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#ffffff26;font-size:18px}
+@keyframes blob-morph{0%,100%{border-radius:58% 42% 55% 45%/52% 58% 42% 48%}33%{border-radius:44% 56% 40% 60%/58% 44% 56% 42%}66%{border-radius:52% 48% 62% 38%/42% 56% 44% 58%}}
+@media(hover:hover){.coffee-copy .button.menu-blob:hover{transform:rotate(2deg) scale(1.06);background:radial-gradient(circle at 30% 25%,#8aa081,#46593f 62%,#2f3d2d);box-shadow:0 34px 46px -24px #1c1f1bcc,inset 0 2px 0 #ffffff33}}
+@media(prefers-reduced-motion:reduce){.coffee-copy .button.menu-blob{animation:none}}
 
-/* ---- Pet-friendly dropdown (inside the "about" text) ---- */
-.fact-drops{margin-top:24px;display:grid;gap:10px;max-width:460px}
-.pet-note{margin:0;border:1px solid var(--line);border-radius:18px;background:#ffffff55;overflow:hidden;max-width:440px}
-.pet-note summary{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;list-style:none;font-size:13px;font-weight:600;min-height:48px}
-.pet-note summary::-webkit-details-marker{display:none}
-.pet-note summary::first-letter{text-transform:uppercase}
-.pet-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--butter);color:var(--ink)}
-.pet-icon svg{width:18px;height:18px}
-.pet-chevron{margin-left:auto;width:9px;height:9px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
-.pet-note[open] .pet-chevron{transform:rotate(-135deg) translateY(-2px)}
-.pet-note p{padding:0 18px 16px 62px;font-size:13px;line-height:1.7;color:var(--muted)}
-.pet-note p::first-letter{text-transform:uppercase}
-.facts{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.facts{grid-template-columns:1fr}}
+
