@@ -534,3 +534,28 @@ dialog{border-radius:2px!important;border:2px solid var(--ink);box-shadow:8px 8p
 .info-pet .info-icon img.maltipoo{position:absolute;left:50%;bottom:-2px;width:auto;height:136px;max-width:none;object-fit:contain;translate:-50% 0;transform-origin:50% 100%;
  filter:brightness(1.38) contrast(1.04) saturate(1.1) drop-shadow(2px 0 0 #fffaf2) drop-shadow(-2px 0 0 #fffaf2) drop-shadow(0 2px 0 #fffaf2) drop-shadow(0 -2px 0 #fffaf2) drop-shadow(3px 4px 0 #15110f);transition:transform .5s var(--ease)}
 @media(hover:hover){.info-pet:hover .info-icon img.maltipoo{transform:rotate(6deg) scale(1.06)}}
+
+/* --- market: one centred button --- */
+.market-cta{display:flex;justify-content:center;margin-top:54px}
+.market-cta .button{font-size:20px;padding:20px 34px;min-height:64px}
+
+/* --- coffee: tighter bottom --- */
+.coffee-intro{padding-bottom:36px!important}
+.coffee-copy>.button.menu-blob{margin-bottom:0}
+.menu-section{padding-top:10px!important}
+.film-booking{justify-content:center}
+
+/* --- about: six ticket-stub tags --- */
+.feature-list{gap:14px 16px!important;margin-top:28px!important}
+.feature-list li.tag{display:flex!important;align-items:stretch;gap:0;padding:0!important;border:2px solid var(--ink)!important;border-radius:2px!important;box-shadow:var(--hard-s);background:var(--porcelain)!important;font-size:13px;font-weight:600;line-height:1.3;min-height:64px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.feature-list li.tag b{display:grid;place-items:center;flex:none;width:58px;font:700 30px/1 var(--display);letter-spacing:.02em;border-right:2px dashed var(--ink);background:#15110f0f}
+.feature-list li.tag span{display:flex;align-items:center;padding:10px 14px;font-size:13px;color:inherit}
+.feature-list li.tag-0{background:var(--champagne)!important;rotate:-1deg}
+.feature-list li.tag-1{background:var(--porcelain)!important;rotate:.8deg}
+.feature-list li.tag-2{background:var(--mint)!important;rotate:.6deg}
+.feature-list li.tag-3{background:var(--ink-2)!important;color:var(--porcelain);rotate:-.8deg}
+.feature-list li.tag-3 b{border-right-color:var(--porcelain);background:#fffaf214;color:var(--champagne)}
+.feature-list li.tag-4{background:var(--terracotta)!important;color:var(--porcelain);rotate:1deg}
+.feature-list li.tag-4 b{border-right-color:var(--porcelain);background:#fffaf21a}
+.feature-list li.tag-5{background:var(--porcelain)!important;rotate:-.6deg}
+@media(hover:hover){.feature-list li.tag:hover{rotate:0deg;transform:translate(-2px,-3px);box-shadow:6px 6px 0 var(--ink)}}
