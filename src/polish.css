@@ -1,5 +1,5 @@
 /* Design refinement layer: typography + unified button system. Loaded last. */
-:root{--sans:'Manrope','Noto Sans Georgian',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--serif:var(--sans);--ease:cubic-bezier(.22,1,.36,1);--ink-2:#1c1f1b;--butter:#ecd9a0;--butter-2:#e1c982;--sage-d:#55684f;--sage-dd:#3d4e3a;font-size:16px;font-feature-settings:'kern','liga';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:root{--sans:'Inter','Noto Sans Georgian',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--serif:var(--sans);--display:'Arial Narrow','Roboto Condensed','Noto Sans Georgian','Arial Narrow Bold',Arial,sans-serif;--ease:cubic-bezier(.22,1,.36,1);--ink-2:#1c1f1b;--butter:#ecd9a0;--butter-2:#e1c982;--sage-d:#55684f;--sage-dd:#3d4e3a;font-size:16px;font-feature-settings:'kern','liga';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-weight:450}
 h1,h2,h3,.brand>span,.footer-wordmark{font-family:var(--sans)}
 .hero h1,.footer-wordmark{font-weight:800;letter-spacing:-.07em}
@@ -254,7 +254,7 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
  .service-film:not([controls]){pointer-events:none}
 }
 
-/* ---- One typeface everywhere: Manrope (Noto Sans Georgian for ქართული), never italic ---- */
+/* ---- Typefaces: Arial Narrow (Roboto Condensed fallback) for display, Inter for text (Noto Sans Georgian for ქართული), never italic ---- */
 *,*::before,*::after{font-style:normal!important}
 .hero-script,h2 em,.founder blockquote,.contacts-sign,.quote-mark,.image-tag,.hand-note,.menu-category>h3,.coffee-mini em,.founder-image>span,.founder-image em{font-family:var(--sans)}
 .hero-script{font-weight:600;letter-spacing:-.035em}
@@ -302,3 +302,20 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 .maltipoo{position:absolute;right:-8px;bottom:-16px;width:112px;height:112px;transform-origin:50% 90%;transform:rotate(-6deg);transition:transform .6s var(--ease);filter:drop-shadow(0 8px 10px #1c1f1b26)}
 @media(hover:hover){.info-pet:hover .maltipoo{transform:rotate(5deg) translateY(-6px) scale(1.05)}}
 @media(max-width:600px){.info-pet p{max-width:58%}.maltipoo{width:100px;height:100px}}
+
+/* ---- Display type: condensed bold headlines, Inter for reading text ---- */
+h1,h2,h3,h4,.brand>span,.footer-wordmark,.hero-script,.stat b,.menu-category>h3,.info-card h3,.service-copy>span:first-child,.product h3,.detail-copy h2,.gallery-caption b,.story-step h3,.menu-item h4,.coffee-mini em,.hand-note,.image-tag,.founder-image>span,.contacts-sign{font-family:var(--display)}
+h1,.hero h1{font-weight:700;letter-spacing:-.015em;line-height:.8}
+.hero h1{font-size:clamp(130px,19vw,290px);margin-left:-6px}
+h2{font-weight:700;letter-spacing:-.012em;line-height:1.02;font-size:clamp(46px,5.6vw,92px)}
+h2 em{font-weight:700;letter-spacing:inherit}
+h3{font-weight:700;letter-spacing:0}
+.brand>span{font-weight:700;letter-spacing:-.01em;font-size:26px}
+.footer-wordmark{font-weight:700;letter-spacing:-.02em}
+.hero-script{font-weight:700;letter-spacing:0;font-size:clamp(50px,6vw,92px)}
+.info-card h3{font-size:21px;letter-spacing:0}
+.service-copy>span:first-child{font-weight:700;font-size:26px}
+.stat b{font-weight:700;letter-spacing:0}
+.menu-category>h3{font-weight:700;font-size:34px}
+.founder blockquote{font-family:var(--sans);font-weight:600}
+.story-step h3,.product h3{letter-spacing:0;font-size:28px}
