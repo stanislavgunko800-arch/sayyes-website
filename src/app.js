@@ -2,7 +2,7 @@ import {animate} from 'motion/mini';
 import {gsap} from 'gsap';
 import {initScrollScenes} from './scroll-scenes.js';
 import {initVideos} from './video.js';
-import {initSmoothScroll,initTickerVelocity} from './smooth.js';
+import {initSmoothScroll} from './smooth.js';
 import {initCursor} from './cursor.js';
 import {initIntro} from './intro.js';
 
@@ -32,7 +32,6 @@ initVideos(t);
 initIntro();
 initSmoothScroll();
 initScrollScenes();
-initTickerVelocity();
 initCursor();
 let scheduled=false;
 const progress=document.querySelector('.scroll-progress'),header=document.querySelector('.site-header');
@@ -93,8 +92,6 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu
 mobileMenu.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const links=[...mobileMenu.querySelectorAll('a')];if(e.shiftKey&&document.activeElement===links[0]){e.preventDefault();menuToggle.focus();}else if(!e.shiftKey&&document.activeElement===links.at(-1)){e.preventDefault();menuToggle.focus();}});
 window.addEventListener('resize',()=>{if(innerWidth>1250)closeMenu();});
 
-const ticker=document.querySelector('.ticker'),tickerPause=document.querySelector('.ticker-pause');
-tickerPause.addEventListener('click',()=>{const paused=ticker.classList.toggle('paused');tickerPause.setAttribute('aria-pressed',String(paused));tickerPause.setAttribute('aria-label',paused?t('Запустить бегущую строку'):t('Приостановить бегущую строку'));tickerPause.textContent=paused?'▷':'Ⅱ';});
 
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const menuPanel=document.querySelector('#menu-panel'),menuTabs=[...document.querySelectorAll('[data-menu]')];

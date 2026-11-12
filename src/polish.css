@@ -1,5 +1,5 @@
 /* Design refinement layer: typography + unified button system. Loaded last. */
-:root{--sans:'Manrope','Noto Sans Georgian',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--serif:'Playfair Display','Noto Sans Georgian',Georgia,'Times New Roman',serif;--ease:cubic-bezier(.22,1,.36,1);--ink-2:#1c1f1b;--butter:#ecd9a0;--butter-2:#e1c982;--sage-d:#55684f;--sage-dd:#3d4e3a;font-size:16px;font-feature-settings:'kern','liga';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:root{--sans:'Manrope','Noto Sans Georgian',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;--serif:var(--sans);--ease:cubic-bezier(.22,1,.36,1);--ink-2:#1c1f1b;--butter:#ecd9a0;--butter-2:#e1c982;--sage-d:#55684f;--sage-dd:#3d4e3a;font-size:16px;font-feature-settings:'kern','liga';text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-weight:450}
 h1,h2,h3,.brand>span,.footer-wordmark{font-family:var(--sans)}
 .hero h1,.footer-wordmark{font-weight:800;letter-spacing:-.07em}
@@ -193,29 +193,6 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
 .reviews-actions{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
 @media(max-width:600px){.reviews-actions .button{width:100%}.reviews-actions .text-link{margin-top:4px}}
 
-/* ---- Slanted crossing ribbons (replaces the old ticker) ---- */
-.ticker{position:relative;overflow:hidden;background:transparent;border:0;padding:0;height:clamp(112px,12.5vw,184px);margin-top:calc(-1*clamp(14px,2.4vw,36px));z-index:3}
-.ticker-row{position:absolute;left:-6%;right:-6%;top:50%;height:clamp(44px,6.2vw,92px);display:flex;align-items:center;overflow:hidden;box-shadow:0 22px 40px -26px #1c1f1b99}
-.ticker-row-a{transform:translateY(-50%) rotate(-2.6deg);background:#1c1f1b;color:#f4f1eb;z-index:2}
-.ticker-row-b{transform:translateY(-50%) rotate(2.6deg);background:var(--butter);color:#1c1f1b;z-index:1;height:clamp(38px,5.2vw,76px)}
-.ticker-row-b .ticker-track{animation-direction:reverse;animation-duration:56s}
-.ticker-row-a .ticker-track{animation-duration:44s}
-.ticker-track>span{display:flex;align-items:center;gap:clamp(14px,2vw,30px);padding-right:clamp(14px,2vw,30px);font-size:inherit}
-.rb-word{font:800 clamp(22px,4vw,60px)/1 var(--sans);letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap}
-.ticker-row-b .rb-word{font-size:clamp(19px,3.3vw,50px)}
-.rb-out{color:transparent;-webkit-text-stroke:clamp(1px,.16vw,2.4px) currentColor}
-.ticker-row-a .rb-out{-webkit-text-stroke-color:#f4f1eb}
-.ticker-row-b .rb-out{-webkit-text-stroke-color:#1c1f1b}
-.rb-script{font:italic 500 clamp(24px,4.3vw,64px)/1 var(--serif);letter-spacing:-.03em;text-transform:none;color:var(--butter)}
-.ticker-row-b .rb-script{color:#485948}
-.rb-star{display:block;flex:none;width:clamp(11px,1.6vw,23px);height:clamp(11px,1.6vw,23px);background:currentColor;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:rb-spin 9s linear infinite}
-.ticker-row-a .rb-star{color:var(--butter)}
-@keyframes rb-spin{to{transform:rotate(360deg)}}
-.ticker.paused .ticker-track,.ticker.paused .rb-star{animation-play-state:paused}
-.ticker-pause{position:absolute;right:max(16px,3vw);bottom:12px;top:auto;height:44px;width:44px;border-radius:50%;background:#f4f1ebe6;border:1px solid #24272226;color:#1c1f1b;z-index:5;font-size:15px;display:grid;place-items:center;transition:transform .3s var(--ease),background .3s}
-@media(hover:hover){.ticker-pause:hover{background:var(--butter);transform:scale(1.06)}}
-@media(max-width:600px){.ticker{height:112px}.ticker-row{left:-12%;right:-12%}.ticker-pause{bottom:6px;right:12px;height:40px;width:40px}}
-@media(prefers-reduced-motion:reduce){.rb-star{animation:none}}
 
 
 /* ---- Reviews as sticky notes on a board ---- */
@@ -230,7 +207,7 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
 .note:nth-child(even) .note-tape{rotate:2.5deg;width:80px;margin-left:-40px}
 .note-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
 .note-mark{font:italic 700 64px/.5 var(--serif);color:#1c1f1b66;height:26px}
-.note-text{font:600 clamp(23px,2.05vw,28px)/1.12 'Caveat','Playfair Display',cursive;color:#1c1f1b}
+.note-text{font:600 clamp(16px,1.3vw,18px)/1.45 var(--sans);color:#1c1f1b}
 .note-text p+p{margin-top:.5em}
 .note[data-long] .note-text{max-height:8.6em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 68%,transparent);mask-image:linear-gradient(#000 68%,transparent)}
 .note-bottom{display:flex;flex-direction:column;gap:6px;margin-top:18px;padding-top:14px;border-top:1px dashed #1c1f1b40}
@@ -252,7 +229,7 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
 .note-dialog{padding:56px 44px 44px;background:#f7e9b9}
 .note-dialog.tone-1{background:#d9e4cd}.note-dialog.tone-2{background:#f4d6c8}.note-dialog.tone-3{background:#dde6ec}
 .note-dialog .review-source{margin-bottom:22px}
-.note-dialog-text{font:600 clamp(26px,3.4vw,34px)/1.18 'Caveat','Playfair Display',cursive;color:#1c1f1b}
+.note-dialog-text{font:600 clamp(18px,2vw,22px)/1.5 var(--sans);color:#1c1f1b}
 .note-dialog-text p+p{margin-top:.6em}
 .note-dialog h2{font:800 16px/1.2 var(--sans);letter-spacing:0;margin:26px 0 8px}
 .note-dialog .text-link{font-size:12px;margin-top:6px}
@@ -276,3 +253,45 @@ html:not([lang=ka]) .fact h3::first-letter,html:not([lang=ka]) .fact p::first-le
  .service-film:not([controls])::-webkit-media-controls,.service-film:not([controls])::-webkit-media-controls-panel,.service-film:not([controls])::-webkit-media-controls-start-playback-button,.service-film:not([controls])::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
  .service-film:not([controls]){pointer-events:none}
 }
+
+/* ---- One typeface everywhere: Manrope (Noto Sans Georgian for ქართული), never italic ---- */
+*,*::before,*::after{font-style:normal!important}
+.hero-script,h2 em,.founder blockquote,.contacts-sign,.quote-mark,.image-tag,.hand-note,.menu-category>h3,.coffee-mini em,.founder-image>span,.founder-image em{font-family:var(--sans)}
+.hero-script{font-weight:600;letter-spacing:-.035em}
+h2 em{font-weight:inherit;letter-spacing:inherit}
+.founder blockquote{font-weight:500;letter-spacing:-.03em}
+.menu-category>h3{font-weight:600}
+
+/* ---- Statement band (replaces the running line) ---- */
+.statement{max-width:2000px;margin:auto;padding:clamp(80px,11vw,170px) 6% clamp(64px,8vw,120px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(30px,4vw,56px)}
+.statement-text{font:700 clamp(36px,6.2vw,104px)/1.04 var(--sans);letter-spacing:-.05em;max-width:16em;white-space:normal;text-wrap:balance}
+.statement-text .sw{display:inline-block;will-change:opacity}
+.statement-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.statement-actions .quick-contact{margin:0}
+
+/* ---- Quick contacts next to booking buttons ---- */
+.quick-contact{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:16px;font-size:12px;color:var(--muted)}
+.quick-contact span{margin-right:2px}
+.quick-contact a{display:inline-flex;align-items:center;min-height:36px;padding:0 15px;border:1px solid var(--line);border-radius:100px;color:var(--ink);font-size:12px;font-weight:600;transition:background .25s var(--ease),border-color .25s,transform .25s var(--ease)}
+@media(hover:hover){.quick-contact a:hover{background:var(--butter);border-color:transparent;transform:translateY(-1px)}}
+.section-heading .quick-contact{margin-top:14px}
+.hero-contact{margin-top:14px}
+.header-contact{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .25s var(--ease),transform .25s var(--ease)}
+@media(hover:hover){.header-contact:hover{background:var(--butter);transform:scale(1.06)}}
+@media(max-width:600px){.header-contact{display:none}}
+.menu-contact{margin-top:26px}
+.menu-contact .quick-contact{margin:0}
+
+/* ---- Pet-friendly dropdown (inside the "about" text) ---- */
+.pet-note{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:#ffffff55;overflow:hidden;max-width:440px}
+.pet-note summary{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;list-style:none;font-size:13px;font-weight:600;min-height:48px}
+.pet-note summary::-webkit-details-marker{display:none}
+.pet-note summary::first-letter{text-transform:uppercase}
+.pet-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--butter);color:var(--ink)}
+.pet-icon svg{width:18px;height:18px}
+.pet-chevron{margin-left:auto;width:9px;height:9px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--ease)}
+.pet-note[open] .pet-chevron{transform:rotate(-135deg) translateY(-2px)}
+.pet-note p{padding:0 18px 16px 62px;font-size:13px;line-height:1.7;color:var(--muted)}
+.pet-note p::first-letter{text-transform:uppercase}
+.facts{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.facts{grid-template-columns:1fr}}

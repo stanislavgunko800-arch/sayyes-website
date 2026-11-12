@@ -22,17 +22,3 @@ export function initSmoothScroll() {
  reduced.addEventListener('change',()=>{if(reduced.matches){lenis.destroy();document.documentElement.classList.remove('lenis','lenis-smooth');}});
  return lenis;
 }
-
-// The marquee speeds up while the page scrolls and relaxes back when it stops.
-export function initTickerVelocity() {
- const tracks=[...document.querySelectorAll('.ticker-track')];
- if(!tracks.length||reduced.matches)return;
- const proxy={rate:1};
- let idle=0;
- const apply=()=>{for(const track of tracks)for(const animation of track.getAnimations())animation.playbackRate=proxy.rate;};
- const to=rate=>gsap.to(proxy,{rate,duration:rate>1?.35:1.1,ease:'power2.out',overwrite:true,onUpdate:apply});
- ScrollTrigger.create({start:0,end:'max',onUpdate:self=>{
-  to(1+Math.min(Math.abs(self.getVelocity())/260,9));
-  clearTimeout(idle);idle=setTimeout(()=>to(1),140);
- }});
-}

@@ -149,6 +149,10 @@ for ru,en,ka in [
  ('ТВОЙ РИТМ','YOUR RHYTHM','შენი რიტმი'),
  ('для себя','for yourself','საკუთარ თავს'),
  ('Красота, кофе, забота — Say Yes','Beauty, coffee, care — Say Yes','სილამაზე, ყავა, ზრუნვა — Say Yes'),
+ ('Красота. Кофе. Забота. И время только для тебя.','Beauty. Coffee. Care. And time just for you.','სილამაზე. ყავა. ზრუნვა. და დრო მხოლოდ შენთვის.'),
+ ('или напишите','or message us','ან მოგვწერეთ'),
+ ('01 / BEAUTY SPACE','01 / BEAUTY SPACE','01 / სილამაზის სივრცე'),
+ ('02 / О ПРОСТРАНСТВЕ','02 / OUR SPACE','02 / ჩვენი სივრცე'),
 ]:pair(ru,en,ka)
 for ru,en,ka in [
  ('КРАСОТА','BEAUTY','სილამაზე'),

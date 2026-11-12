@@ -39,9 +39,7 @@ export function initCursor() {
  function evaluate(target){
   if(!target||target.closest(NATIVE)){setShown(false);return;}
   setShown(true);
-  if(target.closest('.hero-photo')&&!target.closest('a,button')){
-   setState('media',document.querySelector('[data-video-label]')?.textContent||'');
-  }else if(target.closest(HOVER)){setState('hover');}
+  if(target.closest(HOVER)){setState('hover');}
   else setState('');
  }
  document.addEventListener('pointermove',event=>{
@@ -61,13 +59,6 @@ export function initCursor() {
  document.addEventListener('pointerdown',()=>root.classList.add('cursor-down'));
  document.addEventListener('pointerup',()=>root.classList.remove('cursor-down'));
  window.addEventListener('blur',()=>setShown(false));
-
- // The cursor label promises "watch video": make the photo itself toggle playback.
- document.addEventListener('click',event=>{
-  const target=event.target instanceof Element?event.target:null;
-  if(!target||!target.closest('.hero-photo')||target.closest('a,button'))return;
-  document.querySelector('.video-toggle')?.click();
- });
 
  initMagnetic();
  initTilt();
