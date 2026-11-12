@@ -148,3 +148,5 @@ dialog{border-radius:2px!important;border:2px solid var(--ink);box-shadow:8px 8p
 .service-arrow{display:none!important}
 .services-cta{display:flex;justify-content:center;margin-top:46px}
 .services-cta .button{font-size:20px;padding:20px 34px;min-height:64px}
+.info-pet .info-icon{box-shadow:var(--hard-s);rotate:-3deg}
+.info-pet .info-icon img.maltipoo{filter:brightness(1.18) contrast(1.04) saturate(1.05)}

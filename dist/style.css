@@ -373,8 +373,8 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 
 
 /* ---- Maltipoo portrait in the pet-friendly square ---- */
-.info-pet .info-icon{width:92px;height:92px;overflow:hidden;padding:0;border-radius:2px}
-.info-pet .info-icon svg.maltipoo{width:100%;height:100%;margin-top:4px}
+.info-pet .info-icon{width:104px;height:104px;overflow:hidden;padding:0;border-radius:2px}
+.info-pet .info-icon img.maltipoo{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
 .info-pet p{max-width:none}
 
 /* ===== GRUNGE LAYER =====
@@ -527,3 +527,5 @@ dialog{border-radius:2px!important;border:2px solid var(--ink);box-shadow:8px 8p
 .service-arrow{display:none!important}
 .services-cta{display:flex;justify-content:center;margin-top:46px}
 .services-cta .button{font-size:20px;padding:20px 34px;min-height:64px}
+.info-pet .info-icon{box-shadow:var(--hard-s);rotate:-3deg}
+.info-pet .info-icon img.maltipoo{filter:brightness(1.18) contrast(1.04) saturate(1.05)}
