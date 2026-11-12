@@ -22,7 +22,7 @@ def cta(label,href='https://dikidi.ru/887914',cls='button',new=True):
 WA='https://wa.me/995593616989';TG='https://t.me/say_yes_beauty'
 WA_ICON=_svg('<path d="M4 20l1.2-4A8 8 0 1 1 8 18.8L4 20z"/><path d="M9 9.5c.3 2 2.5 4.2 5 5l1.2-1.2-1.8-1-.8.7c-.8-.4-1.5-1.1-1.9-1.9l.7-.8-1-1.8L9 9.5z"/>')
 intro_images=d['menuIntro']['images']
-PET_DOG='<img class="maltipoo" src="/pet/maltipoo.jpg" alt="Собачка породы мальтипу" width="420" height="420" loading="lazy" decoding="async">'
+PET_DOG='<img class="maltipoo" src="/pet/maltipoo-cutout.png" alt="Собачка породы мальтипу" width="276" height="480" loading="lazy" decoding="async">'
 ICONS=['<circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8l12 9M8 16L20 7"/>', '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>', '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>', '<path d="M8.5 11.5c-1.2-1.7-3.5-.8-3.3 1.2.2 1.6 1.7 2.6 3 2.1M15.5 11.5c1.2-1.7 3.5-.8 3.3 1.2-.2 1.6-1.7 2.6-3 2.1M9.5 8C9.5 5.9 8.3 4.8 7.3 5.2 6.2 5.7 6.1 7.6 7 9M14.5 8c0-2.1 1.2-3.2 2.2-2.8 1.1.5 1.2 2.4.3 3.8M12 12.5c-3 0-5 2.5-4.2 4.8.7 2 2.6 2.2 4.2 2.2s3.5-.2 4.2-2.2c.8-2.3-1.2-4.8-4.2-4.8z"/>']
 pet='<div class="about-facts">'+''.join(f'<article class="info-card info-{k} reveal"><span class="info-icon" aria-hidden="true">'+(PET_DOG if k=='pet' else _svg(ICONS[i]))+'</span><h3>'+esc(v['label'])+'</h3><p>'+esc(v['text'])+'</p></article>' for i,(k,v) in enumerate(zip(['team','place','promise','pet'],d['highlights'])))+'</div>'
 features=''

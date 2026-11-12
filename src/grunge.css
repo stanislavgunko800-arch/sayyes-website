@@ -148,5 +148,10 @@ dialog{border-radius:2px!important;border:2px solid var(--ink);box-shadow:8px 8p
 .service-arrow{display:none!important}
 .services-cta{display:flex;justify-content:center;margin-top:46px}
 .services-cta .button{font-size:20px;padding:20px 34px;min-height:64px}
-.info-pet .info-icon{box-shadow:var(--hard-s);rotate:-3deg}
-.info-pet .info-icon img.maltipoo{filter:brightness(1.18) contrast(1.04) saturate(1.05)}
+
+/* --- maltipoo: die-cut sticker popping out of its frame --- */
+.info-pet{padding-top:34px}
+.info-pet .info-icon{position:relative;overflow:visible!important;width:104px;height:104px;rotate:-3deg;box-shadow:var(--hard-s);background:var(--mint)!important}
+.info-pet .info-icon img.maltipoo{position:absolute;left:50%;bottom:-2px;width:auto;height:136px;max-width:none;object-fit:contain;translate:-50% 0;transform-origin:50% 100%;
+ filter:brightness(1.38) contrast(1.04) saturate(1.1) drop-shadow(2px 0 0 #fffaf2) drop-shadow(-2px 0 0 #fffaf2) drop-shadow(0 2px 0 #fffaf2) drop-shadow(0 -2px 0 #fffaf2) drop-shadow(3px 4px 0 #15110f);transition:transform .5s var(--ease)}
+@media(hover:hover){.info-pet:hover .info-icon img.maltipoo{transform:rotate(6deg) scale(1.06)}}
