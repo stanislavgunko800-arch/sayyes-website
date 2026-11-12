@@ -400,3 +400,111 @@ h3{font-weight:700;letter-spacing:0}
 .header-contact{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:background .25s var(--ease),transform .25s var(--ease)}
 @media(hover:hover){.header-contact:hover{background:var(--butter);transform:scale(1.06)}}
 @media(max-width:600px){.header-contact{display:none!important}}
+
+/* ===== GRUNGE LAYER =====
+   Raw, a little rough, not glossy. Palette taken from say-yes-space.com:
+   ink #15110f, charcoal #25211f, paper #f5f2eb, porcelain #fffaf2,
+   champagne #d7bd8f, rose #9a4c58, terracotta #b96a42, sage #697a70, mint #d9ece3. */
+:root{--ink:#15110f;--ink-2:#25211f;--paper:#f5f2eb;--porcelain:#fffaf2;--muted:#6b6760;--line:#15110f33;
+ --champagne:#d7bd8f;--rose:#9a4c58;--terracotta:#b96a42;--sage-green:#697a70;--mint:#d9ece3;
+ --accent:#9a4c58;--sage:#d7bd8f;--butter:#d7bd8f;--butter-2:#c9ac78;--sage-d:#697a70;--sage-dd:#25211f;
+ --torn:polygon(0.0% 7px,2.5% 5px,5.0% 1px,7.5% 0px,10.0% 2px,12.5% 2px,15.0% 7px,17.5% 0px,20.0% 9px,22.5% 0px,25.0% 2px,27.5% 1px,30.0% 1px,32.5% 2px,35.0% 9px,37.5% 2px,40.0% 1px,42.5% 0px,45.0% 2px,47.5% 9px,50.0% 0px,52.5% 1px,55.0% 0px,57.5% 9px,60.0% 0px,62.5% 5px,65.0% 3px,67.5% 1px,70.0% 5px,72.5% 2px,75.0% 3px,77.5% 5px,80.0% 2px,82.5% 9px,85.0% 7px,87.5% 2px,90.0% 2px,92.5% 0px,95.0% 9px,97.5% 6px,100.0% 1px,100.0% calc(100% - 0px),97.5% calc(100% - 7px),95.0% calc(100% - 1px),92.5% calc(100% - 3px),90.0% calc(100% - 6px),87.5% calc(100% - 3px),85.0% calc(100% - 0px),82.5% calc(100% - 2px),80.0% calc(100% - 6px),77.5% calc(100% - 3px),75.0% calc(100% - 2px),72.5% calc(100% - 2px),70.0% calc(100% - 6px),67.5% calc(100% - 6px),65.0% calc(100% - 7px),62.5% calc(100% - 7px),60.0% calc(100% - 7px),57.5% calc(100% - 2px),55.0% calc(100% - 0px),52.5% calc(100% - 1px),50.0% calc(100% - 6px),47.5% calc(100% - 5px),45.0% calc(100% - 7px),42.5% calc(100% - 5px),40.0% calc(100% - 1px),37.5% calc(100% - 2px),35.0% calc(100% - 2px),32.5% calc(100% - 3px),30.0% calc(100% - 6px),27.5% calc(100% - 7px),25.0% calc(100% - 6px),22.5% calc(100% - 3px),20.0% calc(100% - 2px),17.5% calc(100% - 9px),15.0% calc(100% - 5px),12.5% calc(100% - 9px),10.0% calc(100% - 3px),7.5% calc(100% - 7px),5.0% calc(100% - 6px),2.5% calc(100% - 6px),0.0% calc(100% - 7px));
+ --hard:4px 4px 0 var(--ink);--hard-s:3px 3px 0 var(--ink)}
+body{background:var(--paper);color:var(--ink)}
+::selection{background:var(--champagne);color:var(--ink)}
+
+/* --- paper texture: heavier grain, dust and a faint scuffed vignette --- */
+body::after{opacity:.19!important;mix-blend-mode:multiply}
+body::before{content:'';position:fixed;inset:0;z-index:9989;pointer-events:none;opacity:.11;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .06' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .08 0 0 0 0 .06 0 0 0 0 .05 0 0 0 14 -8.2'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url(%23d)' opacity='.55'/%3E%3C/svg%3E");
+ background-size:420px 420px}
+.hero::before,.hero::after,.coffee-intro::before,.story-section::before{display:none!important}
+
+/* --- header: flat and printed --- */
+.site-header{background:var(--paper)!important;backdrop-filter:none!important;border-bottom:2px solid var(--ink)!important;box-shadow:none!important}
+
+/* --- type: loud condensed caps, marker highlight instead of colour italics --- */
+h2{text-transform:uppercase;letter-spacing:.005em!important;line-height:.98!important}
+h2 em{color:inherit!important;background:linear-gradient(transparent 52%,var(--champagne) 52% 94%,transparent 94%);padding:0 .12em;margin:0 -.04em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero-period{color:var(--rose)!important}
+.hero-script{color:var(--rose)!important}
+.eyebrow,.hero-kicker,.section-meta{text-transform:uppercase;letter-spacing:.14em;font-weight:700}
+.section-meta{border-top:2px solid var(--ink)!important}
+.section-meta>span:last-child{color:var(--rose)}
+.fact h3::first-letter,.info-card h3{text-transform:none}
+
+/* --- buttons: flat blocks with a hard offset shadow --- */
+.button,.hero-buttons .button,.button.cta-master:not(.button-outline),.button.cta-menu{border:2px solid var(--ink)!important;background:var(--ink)!important;color:var(--porcelain)!important;box-shadow:var(--hard)!important;font-family:var(--display);font-weight:700!important;letter-spacing:.06em;text-transform:uppercase;font-size:15px;transition:transform .18s,box-shadow .18s,background .18s!important}
+.button.cta-book:not(.button-outline),.hero-buttons .button:not(.button-outline),.button.cta-master:not(.button-outline){background:var(--champagne)!important;color:var(--ink)!important}
+.button-outline,.hero-buttons .button-outline,.button.cta-menu{background:var(--porcelain)!important;color:var(--ink)!important}
+.button::after,.cta-book::after,.cta-master::after{display:none!important}
+.button>span:last-child,.hero-buttons .button>span:last-child{background:var(--ink)!important;color:var(--porcelain)!important;border-radius:2px!important}
+.cta-icon{border-radius:2px!important}
+.button-small{box-shadow:var(--hard-s)!important;font-size:13px}
+@media(hover:hover){.button:hover,.hero-buttons .button:hover,.button.cta-menu:hover,.button.cta-master:hover{transform:translate(2px,2px)!important;box-shadow:2px 2px 0 var(--ink)!important;background:var(--rose)!important;color:var(--porcelain)!important}}
+.button:active{transform:translate(4px,4px)!important;box-shadow:0 0 0 var(--ink)!important}
+.header-contact,.quick-contact a{border:2px solid var(--ink);border-radius:3px}
+.mobile-booking{border-radius:3px!important;background:var(--champagne)!important;color:var(--ink)!important;border:2px solid var(--ink)!important;box-shadow:var(--hard)!important;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+.button:not(.menu-blob),.hero-buttons .button:not(.menu-blob){border-radius:3px!important}
+
+/* --- hero details --- */
+.hero-stamp{background:var(--champagne)!important;border:2px solid var(--ink);color:var(--ink);box-shadow:var(--hard-s)}
+.photo-label{border-radius:0!important;border:2px solid var(--ink);box-shadow:var(--hard-s);background:var(--porcelain)}
+.hero-photo{border-right:2px solid var(--ink)}
+.video-toggle{border-radius:3px!important;border:2px solid var(--ink)!important;background:var(--porcelain)!important;color:var(--ink)!important;box-shadow:var(--hard-s)}
+
+/* --- photos: slightly harsh, printed --- */
+img,video{filter:contrast(1.07) saturate(.9)}
+.brand-mark,.cursor *{filter:none}
+.service-card,.gallery-item,.product>img,.film-frame{border-radius:2px!important;border:2px solid var(--ink)}
+.service-card{box-shadow:6px 6px 0 var(--ink)}
+.service-card::before{display:none!important}
+.service-arrow{border-radius:2px!important;border-color:#fffaf2cc}
+.about-visual>img,.founder-image>img{border-radius:2px!important;border:2px solid var(--ink)}
+.tiny-photo,.collage-main,.collage-small{border-radius:0;box-shadow:var(--hard)}
+.image-tag,.hand-note{background:var(--champagne)!important;color:var(--ink)!important;border:2px solid var(--ink);padding:6px 14px!important;box-shadow:var(--hard-s)}
+.coffee-disc{background:var(--rose)!important;border:2px solid var(--ink);color:var(--porcelain)}
+
+/* --- sections: torn paper edges, flat tints --- */
+.beauty{background:#e9e3d6!important;-webkit-clip-path:var(--torn);clip-path:var(--torn)}
+.market{background:#e3dccb!important;-webkit-clip-path:var(--torn);clip-path:var(--torn)}
+.gallery-section{background:var(--ink-2)!important;-webkit-clip-path:var(--torn);clip-path:var(--torn)}
+.beauty,.market,.gallery-section{margin-top:-6px;padding-top:calc(90px + 6px)}
+.contacts-copy{background:var(--champagne)!important;border-left:2px solid var(--ink)}
+.contacts-photo{border-right:0}
+.site-footer>div{border-top:2px solid var(--ink)}
+.menu-tabs{border-bottom:2px solid var(--ink)!important}
+.menu-tabs [aria-selected=true]{background:var(--ink)!important;border-radius:2px 2px 0 0!important}
+.menu-item img{border:2px solid var(--ink);border-radius:2px!important}
+
+/* --- info cards: cut-out labels --- */
+.info-card{border:2px solid var(--ink);border-radius:2px!important;box-shadow:var(--hard);background-image:none!important}
+.info-team{background:var(--ink-2)!important;color:var(--porcelain);rotate:-1deg}
+.info-team .info-icon{background:var(--champagne)!important;color:var(--ink)!important}
+.info-place{background:var(--champagne)!important;color:var(--ink);rotate:.9deg}
+.info-place .info-icon{background:var(--ink)!important;color:var(--champagne)!important}
+.info-promise{background:var(--terracotta)!important;color:var(--porcelain);rotate:.5deg}
+.info-promise .info-icon{background:var(--porcelain)!important;color:var(--terracotta)!important}
+.info-pet{background:var(--porcelain)!important;border:2px dashed var(--ink);rotate:-.8deg}
+.info-pet .info-icon{background:var(--mint)!important;color:var(--ink)!important}
+.info-icon{border-radius:2px!important}
+@media(hover:hover){.info-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}}
+.feature-list li{border:1.5px solid var(--ink)!important;border-radius:2px!important;background:var(--porcelain)!important}
+.maltipoo{filter:none}
+
+/* --- menu CTA splat: flat rose, inked outline --- */
+.coffee-copy .button.menu-blob{background:var(--rose)!important;color:var(--porcelain)!important;border:2px solid var(--ink)!important;box-shadow:6px 6px 0 var(--ink)!important;font-size:21px;text-transform:uppercase}
+.coffee-copy .button.menu-blob .cta-icon{background:var(--champagne)!important;color:var(--ink)!important;border-radius:50%!important}
+.coffee-copy .button.menu-blob>span:last-child{background:var(--ink)!important;border-radius:50%!important}
+@media(hover:hover){.coffee-copy .button.menu-blob:hover{background:var(--terracotta)!important;box-shadow:3px 3px 0 var(--ink)!important}}
+
+/* --- review board: pinned paper, no softness --- */
+.notes-board{border-radius:2px!important;background:#ddd2bd!important;border:2px solid var(--ink)}
+.note{border-radius:1px!important;box-shadow:3px 4px 0 #15110f55!important}
+.note-tape{background:#d7bd8fcc!important;border:0!important;box-shadow:none!important}
+
+/* --- dialogs --- */
+dialog{border-radius:2px!important;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.dialog-close{border-radius:2px!important;border:2px solid var(--ink)}
+.gallery-section h2 em{color:var(--ink)!important}
