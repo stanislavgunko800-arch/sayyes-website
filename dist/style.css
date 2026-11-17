@@ -362,10 +362,10 @@ h2 em{font-weight:inherit;letter-spacing:inherit}
 /* ===== CLEAN LAYER =====
    Calm, warm, professional. Palette from say-yes-space.com:
    ink #15110f, paper #f2f1ee, porcelain #faf9f7, champagne #b9b8b2,
-   rose #9a4c58, sage #697a70, mint #d9ece3. No tilt, no hard shadows, no texture. */
+   rose #6f1d2f, sage #697a70, mint #d9ece3. No tilt, no hard shadows, no texture. */
 :root{--ink:#15110f;--ink-2:#25211f;--paper:#f2f1ee;--porcelain:#faf9f7;--muted:#6b6760;--line:#15110f1f;
- --champagne:#b9b8b2;--champagne-soft:#dcdad4;--rose:#9a4c58;--sage-green:#697a70;--sage-soft:#e1e6df;--mint:#d9ece3;
- --accent:#9a4c58;--sage:#dddbd5;--butter:#b9b8b2;--butter-2:#a9a8a2;--sage-d:#697a70;--sage-dd:#25211f;
+ --champagne:#b9b8b2;--champagne-soft:#dcdad4;--rose:#6f1d2f;--sage-green:#697a70;--sage-soft:#e1e6df;--mint:#d9ece3;
+ --accent:#6f1d2f;--sage:#dddbd5;--butter:#b9b8b2;--butter-2:#a9a8a2;--sage-d:#697a70;--sage-dd:#25211f;
  --soft:0 22px 44px -30px #15110f66;--soft-s:0 12px 26px -18px #15110f55}
 body{background:var(--paper);color:var(--ink)}
 ::selection{background:var(--champagne);color:var(--ink)}
