@@ -1,10 +1,10 @@
 /* ===== CLEAN LAYER =====
    Calm, warm, professional. Palette from say-yes-space.com:
-   ink #15110f, paper #f5f2eb, porcelain #fffaf2, champagne #d7bd8f,
+   ink #15110f, paper #f2f1ee, porcelain #faf9f7, champagne #b9b8b2,
    rose #9a4c58, sage #697a70, mint #d9ece3. No tilt, no hard shadows, no texture. */
-:root{--ink:#15110f;--ink-2:#25211f;--paper:#f5f2eb;--porcelain:#fffaf2;--muted:#6b6760;--line:#15110f1f;
- --champagne:#d7bd8f;--champagne-soft:#eadfc7;--rose:#9a4c58;--sage-green:#697a70;--sage-soft:#e1e6df;--mint:#d9ece3;
- --accent:#9a4c58;--sage:#e9dfc9;--butter:#d7bd8f;--butter-2:#c9ac78;--sage-d:#697a70;--sage-dd:#25211f;
+:root{--ink:#15110f;--ink-2:#25211f;--paper:#f2f1ee;--porcelain:#faf9f7;--muted:#6b6760;--line:#15110f1f;
+ --champagne:#b9b8b2;--champagne-soft:#dcdad4;--rose:#9a4c58;--sage-green:#697a70;--sage-soft:#e1e6df;--mint:#d9ece3;
+ --accent:#9a4c58;--sage:#dddbd5;--butter:#b9b8b2;--butter-2:#a9a8a2;--sage-d:#697a70;--sage-dd:#25211f;
  --soft:0 22px 44px -30px #15110f66;--soft-s:0 12px 26px -18px #15110f55}
 body{background:var(--paper);color:var(--ink)}
 ::selection{background:var(--champagne);color:var(--ink)}
@@ -12,7 +12,7 @@ body::after{opacity:.035!important}
 .hero::before,.hero::after,.coffee-intro::before,.story-section::before{display:none!important}
 
 /* header */
-.site-header{background:#f5f2ebee!important;backdrop-filter:saturate(1.2) blur(10px)!important;border-bottom:1px solid var(--line)!important;box-shadow:none!important}
+.site-header{background:#f2f1eeee!important;backdrop-filter:saturate(1.2) blur(10px)!important;border-bottom:1px solid var(--line)!important;box-shadow:none!important}
 
 /* type: sentence case, quiet accents */
 h2{text-transform:none;letter-spacing:-.01em!important;line-height:1.02!important}
@@ -42,8 +42,8 @@ h2 em{color:var(--rose)!important}
 .video-toggle{border-radius:999px!important;background:var(--porcelain)!important;color:var(--ink)!important;border:0!important;box-shadow:var(--soft-s)}
 
 /* sections */
-.beauty{background:#ece7dc!important}
-.market{background:#ece7dc!important}
+.beauty{background:#e6e5e1!important}
+.market{background:#e6e5e1!important}
 .gallery-section{background:var(--ink-2)!important}
 .contacts-copy{background:var(--champagne-soft)!important}
 .site-footer>div{border-top:1px solid var(--line)}
@@ -66,7 +66,7 @@ h2 em{color:var(--rose)!important}
 .service-number{display:none}
 .service-arrow{display:none!important}
 .service-copy{inset:0!important;justify-content:center!important;align-items:center!important;pointer-events:none}
-.service-copy>span{display:inline-block;background:#fffaf2e6;color:var(--ink);padding:.28em 1em .34em;border-radius:999px;font:700 clamp(22px,2.2vw,32px)/1.1 var(--display);text-align:center;backdrop-filter:blur(6px);box-shadow:var(--soft-s)}
+.service-copy>span{display:inline-block;background:#faf9f7e6;color:var(--ink);padding:.28em 1em .34em;border-radius:999px;font:700 clamp(22px,2.2vw,32px)/1.1 var(--display);text-align:center;backdrop-filter:blur(6px);box-shadow:var(--soft-s)}
 .services-cta,.market-cta{display:flex;justify-content:center;margin-top:46px}
 .services-cta .button,.market-cta .button{font-size:16px;padding:18px 32px;min-height:60px}
 
@@ -173,7 +173,7 @@ dialog{border-radius:22px!important}
 /* soft glow behind the big SAY / YES */
 .hero-copy{position:relative;isolation:isolate}
 .hero-copy::before{content:'';position:absolute;z-index:-1;left:-12%;top:7%;width:86%;aspect-ratio:1;border-radius:50%;pointer-events:none;
- background:radial-gradient(closest-side,#d7bd8fe6 0%,#e3b9ae8c 50%,#f5f2eb00 100%);filter:blur(26px);animation:heroGlow 9s ease-in-out infinite alternate}
+ background:radial-gradient(closest-side,#b9b8b2e6 0%,#d0c9c78c 50%,#f2f1ee00 100%);filter:blur(26px);animation:heroGlow 9s ease-in-out infinite alternate}
 @keyframes heroGlow{from{transform:scale(.94) translate(0,0);opacity:.85}to{transform:scale(1.06) translate(4%,3%);opacity:1}}
 @media(prefers-reduced-motion:reduce){.hero-copy::before{animation:none}}
 
@@ -200,7 +200,7 @@ dialog{border-radius:22px!important}
 
 /* services: hover popover with the sub-groups, click opens the full price list */
 .service-card{cursor:pointer!important;outline-offset:4px}
-.service-pop{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;gap:14px;padding:26px 24px 22px;background:#fffaf2f5;backdrop-filter:blur(8px);color:var(--ink);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .35s;pointer-events:none;border-radius:inherit}
+.service-pop{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;gap:14px;padding:26px 24px 22px;background:#faf9f7f5;backdrop-filter:blur(8px);color:var(--ink);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .35s;pointer-events:none;border-radius:inherit}
 .service-pop>b{font:800 clamp(24px,2.3vw,32px)/1.05 var(--display);letter-spacing:-.01em}
 .service-pop ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;overflow:hidden}
 .service-pop li{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.25}
