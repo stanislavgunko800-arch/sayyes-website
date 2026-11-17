@@ -75,7 +75,6 @@ export function initScrollScenes() {
    .from(lines,{yPercent:118,duration:1.15,stagger:.13,ease:'expo.out',clearProps:'transform'},.25)
    .from('.hero-script',{opacity:0,y:24,rotation:-14,duration:.9,ease:'back.out(1.6)',clearProps:'opacity,transform'},.85)
    .from('.hero-bottom',{y:18,opacity:0,duration:.8,clearProps:'transform,opacity'},.8)
-   .from('.hero-stamp',{scale:.2,opacity:0,rotation:-80,duration:1,ease:'back.out(1.7)',clearProps:'transform,opacity'},1.1)
    .from('.video-toggle,.photo-label',{opacity:0,y:10,duration:.6,stagger:.1,clearProps:'transform,opacity'},1.2);
 
   context.add('enter',element=>{
