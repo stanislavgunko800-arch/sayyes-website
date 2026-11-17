@@ -1,8 +1,9 @@
 // Respect reduced motion, data-saving preferences and background tabs.
 // The hero has no source until playback is allowed or explicitly requested.
 export function initVideos(t) {
- const hero=document.querySelector('#hero-film');
- const toggle=document.querySelector('.video-toggle');
+ // When a still scene replaces the hero film (see render_scenes.py) these elements are absent: use inert stand-ins.
+ const hero=document.querySelector('#hero-film')||document.createElement('video');
+ const toggle=document.querySelector('.video-toggle')||Object.assign(document.createElement('button'),{innerHTML:'<span class="video-toggle-icon"></span><span data-video-label></span>'});
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const connection=navigator.connection;
  const others=[...document.querySelectorAll('.service-film')];

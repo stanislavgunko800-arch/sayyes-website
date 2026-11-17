@@ -78,6 +78,14 @@ page=f'''<!doctype html>
 <dialog id="detail-dialog" aria-labelledby="detail-title"><button class="dialog-close" aria-label="Закрыть">×</button><div id="dialog-content"></div></dialog><script src="content.js"></script><script src="app.js" defer></script></body></html>'''
 from render_extras import enhance
 page=enhance(page,esc,cta)
+from render_scenes import build as _scenes,hero_scene as _hero_scene
+page=_scenes(d,mapping,page,esc)
+_hs=_hero_scene()
+if _hs:
+ import re as _re
+ page=_re.sub(r'<video class="hero-image hero-film".*?</video>','',page,count=1,flags=_re.S)
+ page=_re.sub(r'<button class="video-toggle".*?</button>','',page,count=1,flags=_re.S)
+ page=page.replace('<div class="hero-photo">','<div class="hero-photo has-scene">'+_hs,1)
 (root/'dist/index.html').write_text(page)
 # Only structured content needed by interactive components; all images hosted locally.
 client={'menu':d['menuGroups'],'gallery':d['moodGallery'],'services':d['services']}

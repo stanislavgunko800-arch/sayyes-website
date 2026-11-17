@@ -170,3 +170,5 @@ from services_tr import SERVICES as _SRV,CATEGORIES as _CAT,UI as _UI
 for _k,(_en,_ka) in {**_SRV,**_CAT}.items():
  if clean(_k) not in CATALOG:pair(_k,_en,_ka)
 for _ru,_en,_ka in _UI:pair(_ru,_en,_ka)
+
+for _ru,_en,_ka in [('Всё для вас','Everything for you','ყველაფერი თქვენთვის'),('Ваш новый ритуал','Your new ritual','თქვენი ახალი რიტუალი'),('Лица Say Yes','The faces of Say Yes','Say Yes-ის სახეები')]:pair(_ru,_en,_ka)

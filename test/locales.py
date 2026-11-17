@@ -32,8 +32,8 @@ for lang in ['ru','ka','en']:
   for key in ['href','src']:
    url=attrs.get(key,'')
    if url.startswith('/'):
-    path=ROOT/'dist'/url.lstrip('/')
-    assert (path/'index.html').is_file() if url.endswith('/') else path.is_file(),url
+    path=ROOT/'dist'/url.lstrip('/').split('?')[0]
+    assert (path/'index.html').is_file() if url.split('?')[0].endswith('/') else path.is_file(),url
   if tag=='a' and attrs.get('href','').startswith('#'):
    assert any(a.get('id')==attrs['href'][1:] for _,a in page.attrs),attrs
  js=(folder/'content.js').read_text();data=json.loads(js.split('window.SAYYES_CONTENT=',1)[1].split(';\nwindow.SAYYES_UI=')[0])

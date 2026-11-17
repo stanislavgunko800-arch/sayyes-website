@@ -243,3 +243,37 @@ dialog{border-radius:22px!important}
  .button:hover>span:last-child{transform:none}
 }
 .button,.hero-btn{will-change:translate}
+
+/* ===== SCENES: editorial image slots (see render_scenes.py, SCENES.md) ===== */
+.hero-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.scene{position:relative;overflow:hidden;padding:clamp(56px,8vw,120px) 6%;background:#e6e5e1}
+.scene-services,.scene-menu,.scene-team,.scene-reviews{background:#dddcd7}
+.scene-atmosphere{background:var(--ink-2)}
+.scene-inner{position:relative;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);align-items:center;gap:0}
+.scene-title{grid-column:1/9;grid-row:1;z-index:3;margin:0;font:800 clamp(48px,8.4vw,136px)/.88 var(--display)!important;text-transform:uppercase;letter-spacing:-.01em;color:#fff;mix-blend-mode:difference;pointer-events:none;overflow-wrap:anywhere}
+.scene-title span{display:inline}
+.scene-frame{grid-column:7/13;grid-row:1;position:relative;margin:0;z-index:2}
+.scene-photo{aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#cfcec9;box-shadow:var(--soft)}
+.scene-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.scene-chip{position:absolute;z-index:4;left:18px;top:18px;padding:8px 14px;border-radius:999px;background:var(--porcelain);font:700 11px/1 var(--sans);letter-spacing:.12em;box-shadow:var(--soft-s)}
+.scene-cut{position:absolute;z-index:5;right:-9%;bottom:-6%;width:50%;height:auto;object-fit:contain;filter:drop-shadow(0 22px 24px #15110f44);pointer-events:none}
+@media(hover:hover){.scene:hover .scene-photo img{transform:scale(1.04)}}
+/* every second scene is mirrored */
+.scene.is-flip .scene-title{grid-column:5/13;text-align:right}
+.scene.is-flip .scene-frame{grid-column:1/7}
+.scene.is-flip .scene-cut{right:auto;left:-9%}
+/* reviews: a wall of repeated words behind the frame */
+.scene-wall{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+.scene-wall span{display:block;white-space:nowrap;text-align:center;font:800 clamp(80px,17vw,260px)/.84 var(--display);color:var(--rose);letter-spacing:-.01em}
+.scene-reviews .scene-inner{grid-template-columns:1fr}
+.scene-reviews .scene-frame{grid-column:1;justify-self:center;width:min(440px,72%)}
+.scene-title-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:800px){
+ .scene{padding:56px 6%}
+ .scene-inner{grid-template-columns:1fr;gap:18px}
+ .scene-title,.scene.is-flip .scene-title{grid-column:1;grid-row:1;text-align:left;font-size:clamp(44px,15vw,84px)!important}
+ .scene-frame,.scene.is-flip .scene-frame{grid-column:1;grid-row:2;width:min(100%,420px);justify-self:center}
+ .scene-cut{right:-4%;width:46%}.scene.is-flip .scene-cut{left:-4%}
+ .scene-reviews .scene-frame{width:min(360px,78%)}
+ .scene-wall span{font-size:16.5vw}
+}
