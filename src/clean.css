@@ -146,3 +146,26 @@ dialog{border-radius:22px!important}
 
 /* footer wordmark on two lines */
 .footer-wordmark{font-size:clamp(90px,15vw,240px)!important;line-height:.82!important;align-items:flex-end!important;white-space:normal!important;letter-spacing:-.04em!important}
+
+/* hero buttons: icon, title + caption, arrow */
+.hero-buttons{gap:14px!important;flex-wrap:wrap}
+.hero-btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:10px 20px 10px 10px;min-height:68px;border-radius:999px;border:1px solid var(--ink);text-align:left;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease),color .3s,border-color .3s}
+.hero-btn::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateY(102%);transition:transform .45s var(--ease)}
+.hb-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;flex-shrink:0;transition:transform .45s var(--ease)}
+.hb-icon svg{width:22px;height:22px}
+.hb-text{display:flex;flex-direction:column;gap:3px;min-width:0}
+.hb-text b{font:700 16px/1.1 var(--sans);letter-spacing:0}
+.hb-text small{font:500 11.5px/1.2 var(--sans);letter-spacing:.04em;opacity:.72}
+.hb-arrow{margin-left:6px;font-size:20px;line-height:1;transition:transform .35s var(--ease)}
+.hero-btn-book{background:var(--ink);color:var(--porcelain);box-shadow:var(--soft-s)}
+.hero-btn-book::before{background:var(--rose)}
+.hero-btn-book .hb-icon{background:var(--champagne);color:var(--ink)}
+.hero-btn-menu{background:var(--porcelain);color:var(--ink)}
+.hero-btn-menu::before{background:var(--sage-green)}
+.hero-btn-menu .hb-icon{background:var(--sage-soft);color:var(--sage-green)}
+@media(hover:hover){.hero-btn:hover{transform:translateY(-3px);box-shadow:0 20px 34px -18px #15110f88}
+ .hero-btn:hover::before{transform:none}
+ .hero-btn-book:hover{border-color:var(--rose)}.hero-btn-menu:hover{color:var(--porcelain);border-color:var(--sage-green)}
+ .hero-btn:hover .hb-icon{transform:rotate(-10deg) scale(1.08)}.hero-btn:hover .hb-arrow{transform:translate(3px,-3px)}
+ .hero-btn-menu:hover .hb-icon{background:var(--champagne);color:var(--ink)}}
+@media(max-width:600px){.hero-buttons{flex-direction:column;align-items:stretch}.hero-btn{width:100%}.hb-arrow{margin-left:auto}}
