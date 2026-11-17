@@ -31,7 +31,7 @@ def enhance(page,esc,cta):
  stats_html='''<div class="stats reveal" role="list"><div class="stat" role="listitem"><b data-count="14" data-suffix="+">14+</b><span>лет в beauty-индустрии</span></div><div class="stat" role="listitem"><b data-count="3">3</b><span>пространства за нашу историю</span></div><div class="stat" role="listitem"><b data-count="6">6</b><span>направлений beauty-услуг</span></div><div class="stat" role="listitem"><b data-count="32">32</b><span>позиции в меню кафе-бара</span></div></div>'''
  page=page.replace('<div class="founder"',stats_html+'<div class="founder"',1)
 
- page=page.replace('<div class="contact-links">','<p class="opening-hours">Ежедневно · 10:00–22:00</p><div class="route-buttons">'+cta('Построить маршрут',DIRECTIONS)+cta('Открыть Google Maps',GOOGLE,'text-link')+'</div><div class="contact-links">')
+ page=page.replace('<div class="contact-links">','<p class="opening-hours">Ежедневно · 10:00–21:00</p><div class="route-buttons">'+cta('Построить маршрут',DIRECTIONS)+cta('Открыть Google Maps',GOOGLE,'text-link')+'</div><div class="contact-links">')
  map_section='''<section class="map-section" aria-label="Say Yes на карте Google"><iframe src="https://www.google.com/maps?q=71%20Merab%20Kostava%20Street%2C%20Tbilisi&z=17&output=embed" title="Карта: Тбилиси, Мераб Костава, 71" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><div class="map-caption"><b>Say Yes Beauty Space</b><span>Тбилиси, Мераб Костава, 71</span></div></section>'''
  page=page.replace('</main>',map_section+'</main>')
  page=page.replace('href="#contacts">Контакты</a>','href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>')

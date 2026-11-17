@@ -25,5 +25,5 @@ for lang in ['ru','ka','en']:
  assert any(t=='iframe' and 'google.com/maps' in a.get('src','') and a.get('loading')=='lazy' and 'hl='+lang in a['src'] for t,a in p.tags)
  assert any('google.com/maps/dir/' in a.get('href','') for t,a in p.tags)
  assert sum('reviews.yandex.ru/user/' in a.get('href','') for t,a in p.tags)==3
- assert '10:00–22:00' in (ROOT/'dist'/lang/'index.html').read_text()
+ assert '10:00–21:00' in (ROOT/'dist'/lang/'index.html').read_text()
  print('PASS:',lang,'video controls/posters, no unconditional autoplay, map, directions, sourced reviews and confirmed hours')
