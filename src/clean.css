@@ -126,3 +126,8 @@ dialog{border-radius:22px!important}
 /* hero subtitle: flat, left, caps — as on the original site */
 .hero-script{transform:none!important;rotate:0!important;align-self:flex-start!important;margin:18px 0 0!important;letter-spacing:.01em!important;text-transform:uppercase;font:700 clamp(20px,2.4vw,36px)/1.1 var(--display)!important;color:var(--ink)!important}
 .hero-kicker{letter-spacing:.06em}
+
+/* hero title on one line, as on the original site */
+.hero h1{white-space:nowrap;font-size:clamp(56px,10.6vw,190px)!important;line-height:.9!important;margin-top:34px!important;letter-spacing:-.02em!important}
+.hero h1 .hero-mask,.hero h1 .hero-line{display:inline-block!important;margin:0!important;vertical-align:top}
+.hero h1 .hero-mask+.hero-mask,.hero h1>.hero-line+.hero-line{margin-left:.16em!important}
