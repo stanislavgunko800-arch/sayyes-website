@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from pathlib import Path
 import json,html
 root=Path(__file__).parent;d=json.loads((root/'source-content.json').read_text());mapping=json.loads((root/'asset-map.json').read_text())
