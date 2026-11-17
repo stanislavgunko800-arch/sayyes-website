@@ -30,7 +30,26 @@ PET_DOG='<img class="maltipoo" src="/pet/maltipoo-cutout.png" alt="Собачк�
 ICONS=['<circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8 8l12 9M8 16L20 7"/>', '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>', '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>', '<path d="M8.5 11.5c-1.2-1.7-3.5-.8-3.3 1.2.2 1.6 1.7 2.6 3 2.1M15.5 11.5c1.2-1.7 3.5-.8 3.3 1.2-.2 1.6-1.7 2.6-3 2.1M9.5 8C9.5 5.9 8.3 4.8 7.3 5.2 6.2 5.7 6.1 7.6 7 9M14.5 8c0-2.1 1.2-3.2 2.2-2.8 1.1.5 1.2 2.4.3 3.8M12 12.5c-3 0-5 2.5-4.2 4.8.7 2 2.6 2.2 4.2 2.2s3.5-.2 4.2-2.2c.8-2.3-1.2-4.8-4.2-4.8z"/>']
 pet='<div class="about-facts">'+''.join(f'<article class="info-card info-{k} reveal"><span class="info-icon" aria-hidden="true">'+_svg(ICONS[i])+'</span><h3>'+esc(v['label'])+'</h3><p>'+esc(v['text'])+'</p></article>' for i,(k,v) in enumerate(zip(['team','place','promise','pet'],d['highlights'])))+'</div>'
 features=''
-services=''.join(f'''<div class="service-card reveal">{img(v['image'],v['title'])}<span class="service-number">0{i+1}</span><span class="service-copy"><span>{esc(v['title'])}</span></span></div>''' for i,v in enumerate(d['services']))
+CRM=json.load(open(root/'services-crm.json',encoding='utf8')) if (root/'services-crm.json').exists() else []
+def _price(item):
+ p=item['price']
+ if p==0:return 'бесплатно' if item['name'].startswith('Консультация') else 'по запросу'
+ return f'{p} gel'
+def _range(group):
+ ps=[i['price'] for i in group['items'] if i['price']>0]
+ if not ps:return ''
+ return f'{min(ps)} gel' if min(ps)==max(ps) else f'{min(ps)}–{max(ps)} gel'
+def service_card(i,v):
+ crm=next((c for c in CRM if c['title']==v['title']),None)
+ pop=full=''
+ if crm:
+  rows=''.join(f'<li><span>{esc(g["category"])}</span><em>{_range(g)}</em></li>' for g in crm['groups'])
+  pop=f'<div class="service-pop" aria-hidden="true"><b>{esc(v["title"])}</b><ul>{rows}</ul><span class="pop-more"><span>Все услуги и цены</span> ↗</span></div>'
+  sections=''.join('<section>'+(f'<h3>{esc(g["category"])}</h3>' if len(crm['groups'])>1 else '')+'<ul>'+''.join(f'<li{" class=is-main" if it["main"] else ""}><span>{esc(it["name"])}</span><b>{_price(it)}</b></li>' for it in g['items'])+'</ul></section>' for g in crm['groups'])
+  full=f'<div class="service-full" hidden><h2 id="price-title">{esc(v["title"])}</h2>{sections}<p class="price-note">Консультация бесплатно · Цены в грузинских лари · GEL</p>{cta("Записаться")}</div>'
+ attrs=' tabindex="0" role="button" aria-haspopup="dialog"' if crm else ''
+ return f'''<div class="service-card reveal"{attrs}>{img(v['image'],v['title'])}<span class="service-number">0{i+1}</span><span class="service-copy"><span>{esc(v['title'])}</span></span>{pop}{full}</div>'''
+services=''.join(service_card(i,v) for i,v in enumerate(d['services']))
 gallery=''.join(f'''<button class="gallery-item reveal" data-gallery="{i}" aria-label="Открыть фото: {esc(v['title'])}">{img(v['image'],v['title'])}<span class="gallery-caption"><span><b>{esc(v['title'])}</b><small>{esc(v['text'])}</small></span><span aria-hidden="true">↗</span></span></button>''' for i,v in enumerate(d['moodGallery']))
 products=''.join(f'''<article class="product reveal">{img(v['image'],v['title'])}<div><span class="eyebrow">0{i+1} / market</span><h3>{esc(v['title'])}</h3><p>{esc(v['text'])}</p></div></article>''' for i,v in enumerate(d['products']))
 stories=''.join(f'<article class="story-step reveal"><span class="eyebrow">0{i+1} / {esc(v["year"])}</span><h3>{esc(v["title"])}</h3><p>{esc(v["text"])}</p></article>' for i,v in enumerate(d['story']))

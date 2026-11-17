@@ -164,3 +164,9 @@ for ru,en,ka in [
  ('Читать целиком','Read the full review','წაიკითხეთ სრულად'),
  ('Показать все отзывы','Show all reviews','ყველა შეფასების ჩვენება'),
 ]:pair(ru,en,ka)
+
+# CRM price list for the services popovers (names/categories come from services-crm.json)
+from services_tr import SERVICES as _SRV,CATEGORIES as _CAT,UI as _UI
+for _k,(_en,_ka) in {**_SRV,**_CAT}.items():
+ if clean(_k) not in CATALOG:pair(_k,_en,_ka)
+for _ru,_en,_ka in _UI:pair(_ru,_en,_ka)

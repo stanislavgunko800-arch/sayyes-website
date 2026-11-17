@@ -125,8 +125,14 @@ document.querySelectorAll('[data-service]').forEach(button=>button.addEventListe
  dialogContent.innerHTML=`<div class="detail-layout"><img src="${escape(item.image)}" alt="${escape(item.title)}"><div class="detail-copy"><span class="eyebrow">${escape(t('BEAUTY / SAY YES'))}</span><h2 id="detail-title">${escape(item.title)}</h2><p>${escape(item.text)}</p><p>${escape(t('Консультация бесплатно.'))}</p><a class="button" href="https://dikidi.ru/887914" target="_blank" rel="noopener noreferrer"><span>${escape(t('Выбрать время'))}</span><span aria-hidden="true">↗</span></a></div></div>`;
  showDialog();
 }));
+// Services: the whole card opens the full CRM price list (the hover popover is only a teaser).
+document.querySelectorAll('.service-card[role=button]').forEach(card=>{
+ const open=()=>{const full=card.querySelector('.service-full');if(!full)return;galleryIndex=null;dialogContent.innerHTML=`<div class="price-sheet" role="document">${full.innerHTML}</div>`;dialog.setAttribute('aria-labelledby','price-title');showDialog();};
+ card.addEventListener('click',event=>{if(event.target.closest('a'))return;open();});
+ card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}});
+});
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
-dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');galleryIndex=null;effects.get(dialog)?.cancel();effects.delete(dialog);});
+dialog.addEventListener('close',()=>{dialog.setAttribute('aria-labelledby','detail-title');document.body.classList.remove('modal-open');galleryIndex=null;effects.get(dialog)?.cancel();effects.delete(dialog);});
 dialog.addEventListener('click',e=>{const rect=dialog.getBoundingClientRect();if(e.target===dialog&&(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom))dialog.close();});
 // Guest reviews: sticky notes open as a full-size note in the shared dialog.
 function openNote(note){

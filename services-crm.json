@@ -1,0 +1,620 @@
+[
+ {
+  "title": "Волосы",
+  "groups": [
+   {
+    "category": "Женские стрижки",
+    "items": [
+     {
+      "name": "Консультация",
+      "price": 0,
+      "minutes": 30,
+      "main": false
+     },
+     {
+      "name": "Стрижка женская",
+      "price": 80,
+      "minutes": 90,
+      "main": true
+     },
+     {
+      "name": "Стрижка кудрявых волос",
+      "price": 100,
+      "minutes": 90,
+      "main": false
+     },
+     {
+      "name": "Стрижка чёлки",
+      "price": 40,
+      "minutes": 45,
+      "main": false
+     },
+     {
+      "name": "Прямой срез машинкой",
+      "price": 40,
+      "minutes": 40,
+      "main": false
+     }
+    ]
+   },
+   {
+    "category": "Окрашивание волос",
+    "items": [
+     {
+      "name": "Консультация",
+      "price": 0,
+      "minutes": 30,
+      "main": false
+     },
+     {
+      "name": "Тонирование всей длины",
+      "price": 180,
+      "minutes": 150,
+      "main": true
+     },
+     {
+      "name": "Окрашивание корней + уход по длине",
+      "price": 230,
+      "minutes": 120,
+      "main": false
+     },
+     {
+      "name": "Окрашивание корней + окрашивание длины",
+      "price": 230,
+      "minutes": 150,
+      "main": true
+     },
+     {
+      "name": "Аиртач: премиальная техника осветления",
+      "price": 450,
+      "minutes": 300,
+      "main": true
+     },
+     {
+      "name": "Растяжка цвета: Балаяж",
+      "price": 350,
+      "minutes": 240,
+      "main": true
+     },
+     {
+      "name": "Мелирование (пряди, блоки, вся масса волос)",
+      "price": 300,
+      "minutes": 240,
+      "main": false
+     },
+     {
+      "name": "Контуринг",
+      "price": 300,
+      "minutes": 240,
+      "main": false
+     },
+     {
+      "name": "Мягкое осветление корней + тонирование",
+      "price": 280,
+      "minutes": 150,
+      "main": false
+     },
+     {
+      "name": "Обесцвечивание корней + тонирование",
+      "price": 350,
+      "minutes": 240,
+      "main": false
+     },
+     {
+      "name": "Тотальный блонд (полное обесцвечивание)",
+      "price": 350,
+      "minutes": 300,
+      "main": false
+     },
+     {
+      "name": "Выход из чёрного",
+      "price": 0,
+      "minutes": 5,
+      "main": false
+     },
+     {
+      "name": "Бразильская техника осветления",
+      "price": 450,
+      "minutes": 300,
+      "main": false
+     },
+     {
+      "name": "Консультация топ-колориста (платная)",
+      "price": 50,
+      "minutes": 60,
+      "main": false
+     }
+    ]
+   },
+   {
+    "category": "Долговременная завивка волос",
+    "items": [
+     {
+      "name": "Биозавивка волос Davines",
+      "price": 350,
+      "minutes": 180,
+      "main": false
+     },
+     {
+      "name": "Долговременная завивка волос",
+      "price": 250,
+      "minutes": 180,
+      "main": false
+     }
+    ]
+   },
+   {
+    "category": "Укладка волос",
+    "items": [
+     {
+      "name": "Сушка на брашинг",
+      "price": 40,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Накрутка на расчёску брашинг",
+      "price": 60,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Укладка на горячий инструмент",
+      "price": 80,
+      "minutes": 90,
+      "main": true
+     },
+     {
+      "name": "Причёска",
+      "price": 120,
+      "minutes": 90,
+      "main": false
+     },
+     {
+      "name": "Косы: плетение",
+      "price": 30,
+      "minutes": 45,
+      "main": false
+     }
+    ]
+   },
+   {
+    "category": "Уход за волосами и кожей головы",
+    "items": [
+     {
+      "name": "Уход от Davines: Абсолютная красота",
+      "price": 90,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Скраб Davines для кожи головы | + к услуге",
+      "price": 25,
+      "minutes": 5,
+      "main": false
+     },
+     {
+      "name": "Пилинг кожи головы Keune | + к услуге",
+      "price": 80,
+      "minutes": 20,
+      "main": false
+     },
+     {
+      "name": "Молекулярный уход K18",
+      "price": 110,
+      "minutes": 45,
+      "main": false
+     },
+     {
+      "name": "Комплексное восстановление Ultimate Repair от Wella Professionals",
+      "price": 100,
+      "minutes": 40,
+      "main": false
+     },
+     {
+      "name": "Brae экспресс-уход",
+      "price": 60,
+      "minutes": 30,
+      "main": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Ногтевой сервис",
+  "groups": [
+   {
+    "category": "Женский маникюр",
+    "items": [
+     {
+      "name": "Комплекс: натуральный маникюр",
+      "price": 50,
+      "minutes": 40,
+      "main": true
+     },
+     {
+      "name": "Комплекс: базовый маникюр",
+      "price": 70,
+      "minutes": 100,
+      "main": true
+     },
+     {
+      "name": "Комплекс: базовый маникюр с укреплением",
+      "price": 90,
+      "minutes": 135,
+      "main": false
+     },
+     {
+      "name": "Комплекс: наращивание ногтей",
+      "price": 140,
+      "minutes": 150,
+      "main": true
+     },
+     {
+      "name": "Комплекс: коррекция",
+      "price": 110,
+      "minutes": 120,
+      "main": false
+     },
+     {
+      "name": "Дизайн ногтя: простой",
+      "price": 2,
+      "minutes": 5,
+      "main": false
+     },
+     {
+      "name": "Ремонт ногтя",
+      "price": 8,
+      "minutes": 15,
+      "main": false
+     },
+     {
+      "name": "Дизайн ногтя: френч",
+      "price": 3,
+      "minutes": 5,
+      "main": false
+     },
+     {
+      "name": "Японский маникюр",
+      "price": 80,
+      "minutes": 60,
+      "main": true
+     },
+     {
+      "name": "СПА для рук «Холодный парафин»",
+      "price": 35,
+      "minutes": 20,
+      "main": false
+     },
+     {
+      "name": "Снятие лака",
+      "price": 15,
+      "minutes": 30,
+      "main": false
+     }
+    ]
+   },
+   {
+    "category": "Женский педикюр",
+    "items": [
+     {
+      "name": "Комплекс: базовый педикюр",
+      "price": 100,
+      "minutes": 100,
+      "main": true
+     },
+     {
+      "name": "Комплекс: базовый без обработки стопы",
+      "price": 80,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Комплекс: натуральный педикюр",
+      "price": 80,
+      "minutes": 40,
+      "main": false
+     },
+     {
+      "name": "Натуральный без обработки стопы",
+      "price": 60,
+      "minutes": 30,
+      "main": false
+     },
+     {
+      "name": "Японский педикюр",
+      "price": 90,
+      "minutes": 60,
+      "main": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Брови и ресницы",
+  "groups": [
+   {
+    "category": "Брови",
+    "items": [
+     {
+      "name": "Оформление: окрашивание + коррекция (краска/хна)",
+      "price": 60,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Счастье для бровей (горячий ботокс)",
+      "price": 15,
+      "minutes": 25,
+      "main": false
+     },
+     {
+      "name": "Ламинирование бровей",
+      "price": 70,
+      "minutes": 40,
+      "main": true
+     },
+     {
+      "name": "Осветление бровей",
+      "price": 55,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Прореживание бровей + коррекция",
+      "price": 45,
+      "minutes": 45,
+      "main": false
+     },
+     {
+      "name": "Окрашивание бровей",
+      "price": 35,
+      "minutes": 30,
+      "main": true
+     },
+     {
+      "name": "Женская коррекция бровей (воск + пинцет + уход)",
+      "price": 35,
+      "minutes": 60,
+      "main": true
+     },
+     {
+      "name": "Комплекс: ламинирование + окрашивание + коррекция",
+      "price": 100,
+      "minutes": 70,
+      "main": true
+     },
+     {
+      "name": "Мужская коррекция бровей (воск + пинцет + уход)",
+      "price": 45,
+      "minutes": 60,
+      "main": false
+     },
+     {
+      "name": "Удаление пушковых волос на лице",
+      "price": 15,
+      "minutes": 25,
+      "main": false
+     }
+    ]
+   },
+   {
+    "category": "Ресницы",
+    "items": [
+     {
+      "name": "Ламинирование бровей и ресниц (полный комплекс)",
+      "price": 190,
+      "minutes": 150,
+      "main": true
+     },
+     {
+      "name": "Ламинирование ресниц + окрашивание + ботокс",
+      "price": 100,
+      "minutes": 90,
+      "main": false
+     },
+     {
+      "name": "Ламинирование ресниц + коррекция и окрашивание бровей",
+      "price": 150,
+      "minutes": 120,
+      "main": false
+     },
+     {
+      "name": "Окрашивание ресниц + уход",
+      "price": 30,
+      "minutes": 40,
+      "main": true
+     },
+     {
+      "name": "Ламинирование нижних ресниц",
+      "price": 30,
+      "minutes": 30,
+      "main": false
+     },
+     {
+      "name": "Снятие ресниц",
+      "price": 20,
+      "minutes": 20,
+      "main": false
+     },
+     {
+      "name": "Ламинирование верхних и нижних ресниц",
+      "price": 120,
+      "minutes": 110,
+      "main": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Мужской уход",
+  "groups": [
+   {
+    "category": "Мужские сервисы",
+    "items": [
+     {
+      "name": "Консультация",
+      "price": 0,
+      "minutes": 30,
+      "main": false
+     },
+     {
+      "name": "Мужская стрижка",
+      "price": 70,
+      "minutes": 60,
+      "main": true
+     },
+     {
+      "name": "Комплекс: Стрижка + Борода",
+      "price": 100,
+      "minutes": 90,
+      "main": true
+     },
+     {
+      "name": "Борода",
+      "price": 50,
+      "minutes": 30,
+      "main": true
+     },
+     {
+      "name": "Камуфляж головы American Crew",
+      "price": 60,
+      "minutes": 30,
+      "main": true
+     },
+     {
+      "name": "Камуфляж бороды American Crew",
+      "price": 40,
+      "minutes": 30,
+      "main": false
+     },
+     {
+      "name": "Комплекс: натуральный мужской маникюр",
+      "price": 50,
+      "minutes": 60,
+      "main": true
+     },
+     {
+      "name": "Комплекс: мужской базовый маникюр",
+      "price": 65,
+      "minutes": 120,
+      "main": false
+     },
+     {
+      "name": "Комплекс: мужской натуральный педикюр",
+      "price": 75,
+      "minutes": 60,
+      "main": true
+     },
+     {
+      "name": "Комплекс: мужской базовый педикюр",
+      "price": 100,
+      "minutes": 120,
+      "main": false
+     },
+     {
+      "name": "Тотальный блонд (полное обесцвечивание)",
+      "price": 350,
+      "minutes": 240,
+      "main": false
+     },
+     {
+      "name": "Частичное окрашивание",
+      "price": 300,
+      "minutes": 180,
+      "main": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Макияж",
+  "groups": [
+   {
+    "category": "Макияж",
+    "items": [
+     {
+      "name": "Акцент в макияже",
+      "price": 50,
+      "minutes": 40,
+      "main": true
+     },
+     {
+      "name": "Комплекс в 4 руки: полный образ (макияж + укладка)",
+      "price": 330,
+      "minutes": 150,
+      "main": true
+     },
+     {
+      "name": "Креативный макияж",
+      "price": 200,
+      "minutes": 110,
+      "main": true
+     },
+     {
+      "name": "Вечерний или фото макияж",
+      "price": 170,
+      "minutes": 90,
+      "main": true
+     },
+     {
+      "name": "Макияж для себя",
+      "price": 375,
+      "minutes": 180,
+      "main": false
+     },
+     {
+      "name": "Нюдовый макияж",
+      "price": 120,
+      "minutes": 40,
+      "main": true
+     },
+     {
+      "name": "Полный образ на вашей локации (макияж + укладка)",
+      "price": 400,
+      "minutes": 180,
+      "main": false
+     },
+     {
+      "name": "Свадебный макияж",
+      "price": 170,
+      "minutes": 110,
+      "main": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Дети",
+  "groups": [
+   {
+    "category": "Дети",
+    "items": [
+     {
+      "name": "Стрижка детская (мальчик 4–8 лет)",
+      "price": 50,
+      "minutes": 60,
+      "main": true
+     },
+     {
+      "name": "Стрижка детская (девочка 4–8 лет)",
+      "price": 50,
+      "minutes": 75,
+      "main": true
+     },
+     {
+      "name": "Окрашивание прядей цветным баллончиком",
+      "price": 15,
+      "minutes": 60,
+      "main": true
+     }
+    ]
+   }
+  ]
+ }
+]
