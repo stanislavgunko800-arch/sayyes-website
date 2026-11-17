@@ -169,3 +169,27 @@ dialog{border-radius:22px!important}
  .hero-btn:hover .hb-icon{transform:rotate(-10deg) scale(1.08)}.hero-btn:hover .hb-arrow{transform:translate(3px,-3px)}
  .hero-btn-menu:hover .hb-icon{background:var(--champagne);color:var(--ink)}}
 @media(max-width:600px){.hero-buttons{flex-direction:column;align-items:stretch}.hero-btn{width:100%}.hb-arrow{margin-left:auto}}
+
+/* soft glow behind the big SAY / YES */
+.hero-copy{position:relative;isolation:isolate}
+.hero-copy::before{content:'';position:absolute;z-index:-1;left:-12%;top:7%;width:86%;aspect-ratio:1;border-radius:50%;pointer-events:none;
+ background:radial-gradient(closest-side,#d7bd8fe6 0%,#e3b9ae8c 50%,#f5f2eb00 100%);filter:blur(26px);animation:heroGlow 9s ease-in-out infinite alternate}
+@keyframes heroGlow{from{transform:scale(.94) translate(0,0);opacity:.85}to{transform:scale(1.06) translate(4%,3%);opacity:1}}
+@media(prefers-reduced-motion:reduce){.hero-copy::before{animation:none}}
+
+/* phones: calm, aligned hero; simple buttons */
+@media(max-width:600px){
+ .hero-copy{min-height:0!important;padding:24px 6% 26px!important}
+ .hero-copy::before{left:-30%;top:4%;width:120%;filter:blur(30px)}
+ .hero h1{font-size:clamp(88px,27vw,128px)!important;margin-top:18px!important;margin-left:-3px!important}
+ .hero .hero-script{margin-top:12px!important}
+ .hero-bottom{margin-top:14px}
+ .hero-buttons{flex-direction:column!important;gap:10px!important;margin-top:22px}
+ .hero-btn{min-height:56px;padding:0 22px!important;justify-content:space-between;border-radius:999px}
+ .hb-icon{display:none}
+ .hb-text small{display:none}
+ .hb-text b{font-size:16px}
+ .hb-arrow{margin-left:auto}
+ .hero-btn-menu{background:transparent}
+ .hero-location{margin-top:26px!important;padding-top:0!important}
+}
