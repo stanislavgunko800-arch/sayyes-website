@@ -501,3 +501,6 @@ dialog{border-radius:22px!important}
 .brand>span{font-size:26px;font-weight:800;letter-spacing:-.04em;line-height:1}
 .brand small{margin-top:6px;font-weight:500;letter-spacing:.14em}
 @media(max-width:600px){.brand>span{font-size:22px}}
+
+/* fewer repeated labels: stamp is hidden on phones, header wordmark stands alone */
+@media(max-width:600px){.hero-stamp{display:none!important}}
