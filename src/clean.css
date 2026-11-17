@@ -173,7 +173,7 @@ dialog{border-radius:22px!important}
 /* soft glow behind the big SAY / YES */
 .hero-copy{position:relative;isolation:isolate}
 .hero-copy::before{content:'';position:absolute;z-index:-1;left:-12%;top:7%;width:86%;aspect-ratio:1;border-radius:50%;pointer-events:none;
- background:radial-gradient(closest-side,#b9b8b2e6 0%,#d0c9c78c 50%,#f2f1ee00 100%);filter:blur(26px);animation:heroGlow 9s ease-in-out infinite alternate}
+ background:radial-gradient(closest-side,#8a334882 0%,#a9566a45 48%,#f2f1ee00 100%);filter:blur(26px);animation:heroGlow 9s ease-in-out infinite alternate}
 @keyframes heroGlow{from{transform:scale(.94) translate(0,0);opacity:.85}to{transform:scale(1.06) translate(4%,3%);opacity:1}}
 @media(prefers-reduced-motion:reduce){.hero-copy::before{animation:none}}
 
@@ -222,3 +222,7 @@ dialog{border-radius:22px!important}
 .price-sheet li.is-main span{font-weight:600}
 .price-sheet .price-note{font-size:13px;color:var(--muted);margin:8px 0 20px}
 @media(max-width:600px){.price-sheet{padding:56px 20px 24px}.price-sheet li{font-size:14px}}
+
+/* header: logo tagline in a thin geometric face, like the logo */
+.brand>span small{display:block;margin-top:6px;font:400 10.5px/1 Futura,'Futura PT','Century Gothic','Avenir Next',Jost,'Trebuchet MS',sans-serif;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:600px){.brand>span small{font-size:9px;margin-top:5px}}
