@@ -193,3 +193,7 @@ dialog{border-radius:22px!important}
  .hero-btn-menu{background:transparent}
  .hero-location{margin-top:26px!important;padding-top:0!important}
 }
+
+/* services button: no colour change on hover, it is magnetic instead */
+@media(hover:hover){.services-cta .button:hover{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--porcelain)!important;transform:none!important;box-shadow:0 18px 30px -18px #15110f88!important}}
+.services-cta .button{will-change:translate}
