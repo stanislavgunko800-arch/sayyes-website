@@ -170,17 +170,15 @@ dialog{border-radius:22px!important}
  .hero-btn-menu:hover .hb-icon{background:var(--champagne);color:var(--ink)}}
 @media(max-width:600px){.hero-buttons{flex-direction:column;align-items:stretch}.hero-btn{width:100%}.hb-arrow{margin-left:auto}}
 
-/* soft glow behind the big SAY / YES */
+/* grunge plate behind the big SAY / YES: rough-edged concrete-grey paper with grain */
 .hero-copy{position:relative;isolation:isolate}
-.hero-copy::before{content:'';position:absolute;z-index:-1;left:-12%;top:7%;width:86%;aspect-ratio:1;border-radius:50%;pointer-events:none;
- background:radial-gradient(closest-side,#8a334882 0%,#a9566a45 48%,#f2f1ee00 100%);filter:blur(26px);animation:heroGlow 9s ease-in-out infinite alternate}
-@keyframes heroGlow{from{transform:scale(.94) translate(0,0);opacity:.85}to{transform:scale(1.06) translate(4%,3%);opacity:1}}
-@media(prefers-reduced-motion:reduce){.hero-copy::before{animation:none}}
+.hero-copy::before{content:'';position:absolute;z-index:-1;left:-4%;top:5%;width:96%;height:67%;rotate:-1.6deg;pointer-events:none;
+ background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 560%22 preserveAspectRatio=%22none%22%3E%3Cdefs%3E%3Cfilter id=%22p%22 x=%22-8%25%22 y=%22-8%25%22 width=%22116%25%22 height=%22116%25%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.028%22 numOctaves=%223%22 seed=%227%22 result=%22w%22/%3E%3CfeDisplacementMap in=%22SourceGraphic%22 in2=%22w%22 scale=%2234%22 xChannelSelector=%22R%22 yChannelSelector=%22G%22 result=%22d%22/%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.85%22 numOctaves=%222%22 seed=%223%22 result=%22g%22/%3E%3CfeColorMatrix in=%22g%22 type=%22matrix%22 values=%220 0 0 0 .25  0 0 0 0 .25  0 0 0 0 .24  0 0 0 .9 -.3%22 result=%22gr%22/%3E%3CfeComposite in=%22gr%22 in2=%22d%22 operator=%22in%22 result=%22gd%22/%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.012 .03%22 numOctaves=%223%22 seed=%2211%22 result=%22s%22/%3E%3CfeColorMatrix in=%22s%22 type=%22matrix%22 values=%220 0 0 0 .2  0 0 0 0 .2  0 0 0 0 .2  0 0 0 1.1 -.58%22 result=%22sc%22/%3E%3CfeComposite in=%22sc%22 in2=%22d%22 operator=%22in%22 result=%22scd%22/%3E%3CfeMerge%3E%3CfeMergeNode in=%22d%22/%3E%3CfeMergeNode in=%22scd%22/%3E%3CfeMergeNode in=%22gd%22/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect x=%2240%22 y=%2240%22 width=%22560%22 height=%22480%22 fill=%22%23d4d3ce%22 filter=%22url(%23p)%22/%3E%3C/svg%3E") center/100% 100% no-repeat;filter:drop-shadow(0 18px 22px #15110f22)}
 
 /* phones: calm, aligned hero; simple buttons */
 @media(max-width:600px){
  .hero-copy{min-height:0!important;padding:24px 6% 26px!important}
- .hero-copy::before{left:-30%;top:4%;width:120%;filter:blur(30px)}
+ .hero-copy::before{left:-6%;top:3%;width:108%;height:58%}
  .hero h1{font-size:clamp(88px,27vw,128px)!important;margin-top:18px!important;margin-left:-3px!important}
  .hero .hero-script{margin-top:12px!important}
  .hero-bottom{margin-top:14px}
