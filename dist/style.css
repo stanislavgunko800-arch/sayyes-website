@@ -496,3 +496,8 @@ dialog{border-radius:22px!important}
 /* hero subtitle: always in the flow, never absolutely placed (phones included) */
 .hero .hero-script,html[lang] .hero .hero-script{position:static!important;right:auto!important;top:auto!important;max-width:100%!important;margin:14px 0 0!important;letter-spacing:.01em!important;font-size:clamp(17px,2.4vw,36px)!important;text-wrap:balance}
 @media(max-width:600px){.hero h1{font-size:clamp(54px,19vw,96px)!important;margin-top:26px!important}.hero h1 .hero-mask+.hero-mask,.hero h1>.hero-line+.hero-line{margin-left:.12em!important}.hero-kicker{font-size:12px}}
+
+/* header wordmark as on the original site: text only, no square */
+.brand>span{font-size:26px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.brand small{margin-top:6px;font-weight:500;letter-spacing:.14em}
+@media(max-width:600px){.brand>span{font-size:22px}}
