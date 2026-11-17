@@ -72,7 +72,6 @@ export function initScrollScenes() {
   }
   hero.from('.hero-photo',{clipPath:'inset(100% 0% 0% 0%)',duration:1.35,ease:'expo.inOut',clearProps:'clipPath'},0)
    .from('.hero-image',{scale:1.3,duration:2,ease:'expo.out',clearProps:'transform'},0)
-   .from('.hero-kicker',{y:12,opacity:0,duration:.7,clearProps:'transform,opacity'},.2)
    .from(lines,{yPercent:118,duration:1.15,stagger:.13,ease:'expo.out',clearProps:'transform'},.25)
    .from('.hero-script',{opacity:0,y:24,rotation:-14,duration:.9,ease:'back.out(1.6)',clearProps:'opacity,transform'},.85)
    .from('.hero-bottom',{y:18,opacity:0,duration:.8,clearProps:'transform,opacity'},.8)
