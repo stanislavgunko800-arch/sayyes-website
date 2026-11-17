@@ -589,3 +589,18 @@ dialog{border-radius:22px!important}
 /* header: the real Say Yes logo (white background blends into the header) */
 .brand-logo{display:block;width:auto;height:50px;object-fit:contain;mix-blend-mode:multiply}
 @media(max-width:600px){.brand-logo{height:40px}}
+
+/* buttons never change colour on hover: they are magnetic instead (see magnetic.js) */
+.hero-btn::before{display:none!important}
+@media(hover:hover){
+ .button:hover,.hero-buttons .button:hover,.button.cta-book:hover{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--porcelain)!important;transform:none!important;box-shadow:var(--soft-s)!important}
+ .button-outline:hover,.hero-buttons .button-outline:hover,.button.cta-menu:hover,.button.cta-master:not(.button-outline):hover{background:transparent!important;color:var(--ink)!important;border-color:var(--ink)!important;box-shadow:none!important}
+ .coffee-copy .button.menu-blob:hover{background:var(--sage-green)!important;color:var(--porcelain)!important;transform:none!important}
+ .hero-btn:hover{transform:none!important;box-shadow:var(--soft-s)}
+ .hero-btn-book:hover{border-color:var(--ink)}
+ .hero-btn-menu:hover{color:var(--ink);border-color:var(--ink)}
+ .hero-btn:hover .hb-icon,.hero-btn:hover .hb-arrow{transform:none!important}
+ .hero-btn-menu:hover .hb-icon{background:var(--sage-soft)!important;color:var(--sage-green)!important}
+ .button:hover>span:last-child{transform:none}
+}
+.button,.hero-btn{will-change:translate}
