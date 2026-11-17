@@ -122,3 +122,7 @@ dialog{border-radius:22px!important}
 .dialog-close{border-radius:50%!important}
 .film-booking{justify-content:center}
 .feature-list li.tag span{color:var(--ink)!important}
+
+/* hero subtitle: flat, left, caps — as on the original site */
+.hero-script{transform:none!important;rotate:0!important;align-self:flex-start!important;margin:18px 0 0!important;letter-spacing:.01em!important;text-transform:uppercase;font:700 clamp(20px,2.4vw,36px)/1.1 var(--display)!important;color:var(--ink)!important}
+.hero-kicker{letter-spacing:.06em}
