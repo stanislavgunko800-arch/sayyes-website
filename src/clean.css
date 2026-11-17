@@ -226,3 +226,7 @@ dialog{border-radius:22px!important}
 /* header: logo tagline in a thin geometric face, like the logo */
 .brand>span small{display:block;margin-top:6px;font:400 10.5px/1 Futura,'Futura PT','Century Gothic','Avenir Next',Jost,'Trebuchet MS',sans-serif;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 @media(max-width:600px){.brand>span small{font-size:9px;margin-top:5px}}
+
+/* header: the real Say Yes logo (white background blends into the header) */
+.brand-logo{display:block;width:auto;height:50px;object-fit:contain;mix-blend-mode:multiply}
+@media(max-width:600px){.brand-logo{height:40px}}
