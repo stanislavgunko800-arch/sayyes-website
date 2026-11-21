@@ -172,3 +172,18 @@ for _k,(_en,_ka) in {**_SRV,**_CAT}.items():
 for _ru,_en,_ka in _UI:pair(_ru,_en,_ka)
 
 for _ru,_en,_ka in [('Всё для вас','Everything for you','ყველაფერი თქვენთვის'),('Ваш новый ритуал','Your new ritual','თქვენი ახალი რიტუალი'),('Лица Say Yes','The faces of Say Yes','Say Yes-ის სახეები')]:pair(_ru,_en,_ka)
+
+for _ru,_en,_ka in [
+ ('Анонимно владельцу','Anonymous message to the owner','ანონიმური შეტყობინება მფლობელს'),
+ ('Напишите, что понравилось или что стоит улучшить. Имя, телефон и адрес мы не спрашиваем и не сохраняем. Сообщение прочитает только владелица.','Tell us what you liked or what we could improve. We do not ask for or keep your name, phone or address. Only the owner will read your message.','დაწერეთ, რა მოგეწონათ ან რა შეიძლება გავაუმჯობესოთ. სახელს, ტელეფონს და მისამართს არ ვითხოვთ და არ ვინახავთ. შეტყობინებას მხოლოდ მფლობელი წაიკითხავს.'),
+ ('О чём сообщение','What is it about','რას ეხება შეტყობინება'),
+ ('Идея','Idea','იდეა'),('Сервис','Service','სერვისი'),('Спасибо','Thank you','მადლობა'),('Другое','Other','სხვა'),
+ ('Ваше сообщение','Your message','თქვენი შეტყობინება'),
+ ('Отправить анонимно','Send anonymously','ანონიმურად გაგზავნა'),
+ ('Если хотите получить ответ, оставьте контакт в тексте сообщения. Это ваш выбор.','If you would like a reply, leave your contact in the message. That is your choice.','თუ პასუხი გსურთ, დატოვეთ საკონტაქტო ინფორმაცია შეტყობინების ტექსტში. ეს თქვენი არჩევანია.'),
+ ('Спасибо!','Thank you!','მადლობა!'),
+ ('Сообщение отправлено владельцу. Оно анонимное.','Your message has been sent to the owner. It is anonymous.','შეტყობინება მფლობელს გაეგზავნა. ის ანონიმურია.'),
+ ('Напишите хотя бы пару предложений.','Please write at least a couple of sentences.','დაწერეთ მინიმუმ რამდენიმე წინადადება.'),
+ ('Отправляем…','Sending…','იგზავნება…'),
+ ('Не получилось отправить. Попробуйте ещё раз чуть позже.','Could not send. Please try again a little later.','გაგზავნა ვერ მოხერხდა. სცადეთ ცოტა ხანში.'),
+]:pair(_ru,_en,_ka)

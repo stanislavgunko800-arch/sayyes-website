@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "node --check src/app.js",
-    "test": "python3 test/locales.py && node test/video-runtime.mjs",
+    "test": "python3 test/locales.py && node test/video-runtime.mjs && node test/feedback.mjs",
     "test:media": "python3 test/video.py"
   },
   "dependencies": {

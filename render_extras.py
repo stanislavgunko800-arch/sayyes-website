@@ -1,10 +1,18 @@
 from pathlib import Path
+import os
 import json,html
 ROOT=Path(__file__).parent
 MAP_QUERY='Say%20Yes%20Beauty%20Space%2C%2071%20Merab%20Kostava%20Street%2C%20Tbilisi'
 GOOGLE='https://www.google.com/maps/search/?api=1&query='+MAP_QUERY
 YANDEX_REVIEWS='https://yandex.ru/maps/org/3763868459/reviews/'
 DIRECTIONS='https://www.google.com/maps/dir/?api=1&destination='+MAP_QUERY
+
+def feedback_enabled():
+ # The anonymous form is shown only once the KV storage is bound in wrangler.jsonc (see FEEDBACK.md).
+ cfg=ROOT/'wrangler.jsonc'
+ return bool(os.environ.get('SAYYES_FEEDBACK')) or (cfg.exists() and '"FEEDBACK"' in cfg.read_text(encoding='utf8'))
+
+FEEDBACK_TEMPLATE='''<template id="feedback-template"><div class="feedback-sheet"><h2 id="feedback-title">Анонимно владельцу</h2><p class="fb-lead">Напишите, что понравилось или что стоит улучшить. Имя, телефон и адрес мы не спрашиваем и не сохраняем. Сообщение прочитает только владелица.</p><form class="feedback-form" novalidate><fieldset class="fb-topics"><legend>О чём сообщение</legend><label><input type="radio" name="topic" value="idea" checked><span>Идея</span></label><label><input type="radio" name="topic" value="service"><span>Сервис</span></label><label><input type="radio" name="topic" value="praise"><span>Спасибо</span></label><label><input type="radio" name="topic" value="other"><span>Другое</span></label></fieldset><label class="fb-field"><span>Ваше сообщение</span><textarea name="message" rows="6" maxlength="2000" required></textarea></label><p class="fb-count"><span data-chars>0</span> / 2000</p><input class="fb-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="button" type="submit"><span>Отправить анонимно</span><span aria-hidden="true">↗</span></button><p class="fb-note">Если хотите получить ответ, оставьте контакт в тексте сообщения. Это ваш выбор.</p><p class="fb-status" role="status" aria-live="polite"></p></form><div class="fb-done" hidden><h3>Спасибо!</h3><p>Сообщение отправлено владельцу. Оно анонимное.</p></div><div hidden><span data-fb="short">Напишите хотя бы пару предложений.</span><span data-fb="sending">Отправляем…</span><span data-fb="error">Не получилось отправить. Попробуйте ещё раз чуть позже.</span></div></div></template>'''
 
 def enhance(page,esc,cta):
  old='<div class="hero-photo">';start=page.index(old)+len(old);end=page.index('<div class="photo-label">',start)
@@ -37,4 +45,8 @@ def enhance(page,esc,cta):
  page=page.replace('href="#contacts">Контакты</a>','href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>')
  sticky='<a class="mobile-booking" href="https://dikidi.ru/887914" target="_blank" rel="noopener noreferrer"><i class="cta-icon cta-pulse" aria-hidden="true"></i><span>Выбрать время</span><span aria-hidden="true">↗</span></a>'
  page=page.replace('<dialog id="detail-dialog"',sticky+'<dialog id="detail-dialog"')
+ if feedback_enabled():
+  marker='<div class="contact-links">';s=page.index(marker);e=page.index('</div>',s)
+  page=page[:e]+'<button type="button" class="contact-link feedback-open"><span>Анонимно владельцу</span><span aria-hidden="true">✉</span></button>'+page[e:]
+  page=page.replace('<dialog id="detail-dialog"',FEEDBACK_TEMPLATE+'<dialog id="detail-dialog"',1)
  return page

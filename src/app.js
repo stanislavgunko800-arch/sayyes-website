@@ -131,6 +131,27 @@ document.querySelectorAll('.service-card[role=button]').forEach(card=>{
  card.addEventListener('click',event=>{if(event.target.closest('a'))return;open();});
  card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}});
 });
+// Anonymous message to the owner: the form lives in a <template>, sent to /api/feedback (stored without any sender data).
+document.querySelectorAll('.feedback-open').forEach(button=>button.addEventListener('click',()=>{
+ const template=document.querySelector('#feedback-template');if(!template)return;
+ galleryIndex=null;dialogContent.innerHTML=`<div class="feedback-wrap">${template.innerHTML}</div>`;dialog.setAttribute('aria-labelledby','feedback-title');showDialog();
+ const form=dialogContent.querySelector('.feedback-form'),status=form.querySelector('.fb-status'),area=form.elements.message,opened=Date.now();
+ const msg=key=>dialogContent.querySelector(`[data-fb="${key}"]`).textContent;
+ area.addEventListener('input',()=>{form.querySelector('[data-chars]').textContent=area.value.length;status.textContent='';});
+ form.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const message=area.value.trim();
+  if(message.length<10){status.textContent=msg('short');area.focus();return;}
+  const submit=form.querySelector('button[type=submit]');submit.disabled=true;status.textContent=msg('sending');
+  try{
+   const response=await fetch('/api/feedback',{method:'POST',headers:{'content-type':'application/json'},cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer',
+    body:JSON.stringify({message,topic:form.elements.topic.value,lang:document.documentElement.lang,hp:form.elements.website.value,ms:Date.now()-opened})});
+   if(!response.ok)throw new Error(String(response.status));
+   form.hidden=true;dialogContent.querySelector('.fb-done').hidden=false;dialogContent.querySelector('.fb-lead').hidden=true;
+  }catch{status.textContent=msg('error');submit.disabled=false;}
+ });
+ area.focus();
+}));
 dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('close',()=>{dialog.setAttribute('aria-labelledby','detail-title');document.body.classList.remove('modal-open');galleryIndex=null;effects.get(dialog)?.cancel();effects.delete(dialog);});
 dialog.addEventListener('click',e=>{const rect=dialog.getBoundingClientRect();if(e.target===dialog&&(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom))dialog.close();});
