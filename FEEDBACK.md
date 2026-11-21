@@ -14,7 +14,7 @@ Not stored: IP address, browser, device, cookies, referrer, exact time. The Work
    ```jsonc
    "kv_namespaces": [{ "binding": "FEEDBACK", "id": "<namespace id>" }]
    ```
-   Until this binding exists the form is hidden on the site.
+   Until this binding and the secret exist, the form is shown but sending answers with a polite error.
 3. **Workers & Pages → sayyes-website → Settings → Variables and Secrets → Add** a *Secret* named `CRM_TOKEN`.
    Make the value with `openssl rand -hex 32`. Never commit it; the CRM gets the same value in its own `.env`.
 4. Push to `main`; Cloudflare deploys the Worker (`worker/index.js`) with the site.
