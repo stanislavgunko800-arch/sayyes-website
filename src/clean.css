@@ -301,3 +301,24 @@ dialog{border-radius:22px!important}
 .fb-done p{font-size:16px;line-height:1.5}
 button.contact-link{background:none;border:0;border-bottom:1px solid var(--line);width:100%;text-align:left;cursor:pointer;font:inherit;color:inherit}
 @media(max-width:600px){.feedback-wrap{padding:56px 20px 24px}}
+
+/* ---------- 3D-тур (сцена из Blender) ---------- */
+.tour{position:relative;height:420vh;background:#f2f1ee}
+.tour-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#e6e5e1 url(/3d/poster.jpg) center/cover no-repeat}
+.tour-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1s ease}
+.tour.is-ready .tour-canvas{opacity:1}
+.tour-ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;padding:clamp(88px,12vh,130px) clamp(20px,5vw,72px) clamp(28px,6vh,56px);pointer-events:none;color:#15110f}
+.tour-kicker{font:600 12px/1 var(--display,Arial Narrow,sans-serif);letter-spacing:.32em}
+.tour-ui h2{margin:14px 0 0;font:700 clamp(44px,8.5vw,128px)/.88 var(--display,Arial Narrow,sans-serif);text-transform:uppercase;letter-spacing:-.01em;color:#15110f}
+.tour-ui h2 em{font-style:normal;color:#6f1d2f}
+.tour-ui>*:first-child,.tour-ui h2{align-self:flex-start}
+.tour-labels{list-style:none;margin:0;padding:0;display:flex;gap:clamp(14px,3vw,36px);flex-wrap:wrap;position:absolute;left:clamp(20px,5vw,72px);bottom:clamp(28px,6vh,56px)}
+.tour-labels li{font:600 12px/1 var(--display,Arial Narrow,sans-serif);letter-spacing:.24em;text-transform:uppercase;color:rgba(21,17,15,.4);padding-bottom:8px;border-bottom:2px solid transparent;transition:color .4s,border-color .4s}
+.tour-labels li.is-on{color:#15110f;border-color:#6f1d2f}
+.tour-hint{position:absolute;right:clamp(20px,5vw,72px);bottom:clamp(28px,6vh,56px);margin:0;font:600 11px/1 var(--display,Arial Narrow,sans-serif);letter-spacing:.24em;text-transform:uppercase;color:#15110f;transition:opacity .5s}
+.tour.is-started .tour-hint{opacity:0}
+.tour.is-failed{height:auto}
+.tour.is-failed .tour-stage{position:relative;height:62vh}
+.tour.is-failed .tour-labels,.tour.is-failed .tour-hint{display:none}
+@media (max-width:700px){.tour{height:360vh}.tour-hint{display:none}.tour-labels{gap:12px}}
+@media (prefers-reduced-motion:reduce){.tour{height:auto}.tour-stage{position:relative;height:80vh}.tour-hint{display:none}}

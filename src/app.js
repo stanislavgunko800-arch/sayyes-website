@@ -168,3 +168,10 @@ const notesBoard=document.querySelector('.notes-board');
 notesBoard?.querySelector('.notes-more')?.addEventListener('click',()=>notesBoard.classList.add('is-open'));
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileMenu.hidden){closeMenu();menuToggle.focus();}if(dialog.open&&galleryIndex!==null){if(e.key==='ArrowRight'){e.preventDefault();showGallery(galleryIndex+1);}if(e.key==='ArrowLeft'){e.preventDefault();showGallery(galleryIndex-1);}}});
+
+// 3D-тур: тяжёлый просмотрщик (three.js) подгружается, только когда секция близко
+{const tour=document.querySelector('[data-tour]');
+ if(tour){
+  const load=()=>{const s=document.createElement('script');s.type='module';s.src='/tour.js';document.body.appendChild(s)};
+  if('IntersectionObserver' in window){const io=new IntersectionObserver(e=>{if(e.some(x=>x.isIntersecting)){io.disconnect();load()}},{rootMargin:'120% 0px'});io.observe(tour)}else load();
+ }}
