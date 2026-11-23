@@ -683,3 +683,15 @@ button.contact-link{background:none;border:0;border-bottom:1px solid var(--line)
 .tour.is-failed .tour-labels,.tour.is-failed .tour-hint{display:none}
 @media (max-width:700px){.tour{height:360vh}.tour-hint{display:none}.tour-labels{gap:12px}}
 @media (prefers-reduced-motion:reduce){.tour{height:auto}.tour-stage{position:relative;height:80vh}.tour-hint{display:none}}
+
+/* ---------- Живой уголок (2.5D из фото) ---------- */
+.corner{position:relative;height:300vh;background:#15110f;color:#f2f1ee}
+.corner-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(20px,4vw,64px);padding:0 clamp(20px,5vw,72px)}
+.corner-copy{grid-column:1;align-self:center}
+.corner-kicker{font:600 12px/1 var(--display,Arial Narrow,sans-serif);letter-spacing:.32em;color:#b9b8b2}
+.corner-copy h2{margin:14px 0 18px;font:700 clamp(40px,6vw,92px)/.9 var(--display,Arial Narrow,sans-serif);text-transform:uppercase;color:#f2f1ee}
+.corner-copy h2 em{font-style:normal;color:#b9b8b2}
+.corner-copy p{margin:0;font:600 11px/1.4 var(--display,Arial Narrow,sans-serif);letter-spacing:.24em;text-transform:uppercase;color:#b9b8b2}
+.corner-canvas{grid-column:2;height:min(88svh,980px);aspect-ratio:1125/2000;display:block;border-radius:22px;background:#2a2522 url(/3d/corner.jpg) center/cover no-repeat;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+@media (max-width:820px){.corner{height:260vh}.corner-stage{display:block;padding:0}.corner-canvas{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0;object-fit:cover;background-size:cover}.corner-copy{position:absolute;left:20px;right:20px;top:clamp(88px,12vh,120px);z-index:2;text-shadow:0 2px 24px rgba(0,0,0,.55)}.corner-copy p{display:none}}
+@media (prefers-reduced-motion:reduce){.corner{height:auto}.corner-stage{position:relative;height:90vh}}

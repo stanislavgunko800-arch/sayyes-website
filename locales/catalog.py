@@ -202,3 +202,12 @@ for _ru,_en,_ka in [
 ]:pair(_ru,_en,_ka)
 
 pair('Уголок','Corner','კუთხე')
+
+for _ru,_en,_ka in [
+ ('ЖИВОЙ УГОЛОК','LIVING CORNER','ცოცხალი კუთხე'),
+ ('Как у нас','The way it is','ისე, როგორც'),
+ ('на самом деле','at Say Yes','სინამდვილეში'),
+ ('Листайте, чтобы заглянуть глубже','Scroll to look deeper','გადაფურცლეთ, რომ უფრო ღრმად ჩაიხედოთ'),
+ ('Живой уголок салона','A living corner of the salon','სალონის ცოცხალი კუთხე'),
+ ('Фото уголка Say Yes: бочки, полки с подсветкой, бар','Photo of the Say Yes corner: barrels, lit shelves, bar','Say Yes-ის კუთხის ფოტო: კასრები, განათებული თაროები, ბარი'),
+]:pair(_ru,_en,_ka)

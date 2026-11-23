@@ -5,6 +5,7 @@ import {initVideos} from './video.js';
 import {initSmoothScroll} from './smooth.js';
 import {initIntro} from './intro.js';
 import {initMagnetic} from './magnetic.js';
+import {initCorner} from './corner.js';
 
 const content=window.SAYYES_CONTENT;
 const ui=window.SAYYES_UI;
@@ -175,3 +176,5 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileMenu.hidden)
   const load=()=>{const s=document.createElement('script');s.type='module';s.src='/tour.js';document.body.appendChild(s)};
   if('IntersectionObserver' in window){const io=new IntersectionObserver(e=>{if(e.some(x=>x.isIntersecting)){io.disconnect();load()}},{rootMargin:'120% 0px'});io.observe(tour)}else load();
  }}
+
+initCorner();

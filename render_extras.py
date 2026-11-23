@@ -24,6 +24,9 @@ def enhance(page,esc,cta):
  page=page.replace('<section id="coffee"',film+'\n<section id="coffee"')
  tour='''<section class="tour" id="tour" data-tour data-glb="/3d/salon.glb" data-cam="/3d/camera.json" aria-label="3D-тур по салону"><div class="tour-stage"><canvas class="tour-canvas" aria-hidden="true"></canvas><div class="tour-ui"><span class="tour-kicker">3D-ТУР</span><h2>Загляните<br><em>внутрь</em></h2><ol class="tour-labels"><li>Вход</li><li>Бар и кофе</li><li>Зона красоты</li><li>Уголок</li></ol><p class="tour-hint">Листайте, чтобы войти</p></div></div></section>'''
  page=page.replace('<section id="about"',tour+'\n<section id="about"',1)
+ corner='''<section class="corner" id="corner" data-corner data-src="/3d/corner.jpg" aria-label="Живой уголок салона"><div class="corner-stage"><div class="corner-copy"><span class="corner-kicker">ЖИВОЙ УГОЛОК</span><h2>Как у нас<br><em>на самом деле</em></h2><p>Листайте, чтобы заглянуть глубже</p></div><canvas class="corner-canvas" role="img" aria-label="Фото уголка Say Yes: бочки, полки с подсветкой, бар"></canvas></div></section>'''
+ page=page.replace('<section id="about"',corner+'\n<section id="about"',1)
+
 
  reviews_data=json.loads((ROOT/'reviews.json').read_text());reviews=reviews_data['items']
  source_names={'google':'Google Maps','yandex':'Яндекс'}
