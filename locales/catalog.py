@@ -211,3 +211,10 @@ for _ru,_en,_ka in [
  ('Живой уголок салона','A living corner of the salon','სალონის ცოცხალი კუთხე'),
  ('Фото уголка Say Yes: бочки, полки с подсветкой, бар','Photo of the Say Yes corner: barrels, lit shelves, bar','Say Yes-ის კუთხის ფოტო: კასრები, განათებული თაროები, ბარი'),
 ]:pair(_ru,_en,_ka)
+
+for _ru,_en,_ka in [
+ ('3D-СКАН','3D SCAN','3D სკანი'),
+ ('за кулисы','behind the scenes','კულისებში'),
+ ('Листайте: камера войдёт внутрь','Scroll: the camera will step inside','გადაფურცლეთ: კამერა შიგნით შევა'),
+ ('3D-скан кухни салона','3D scan of the salon kitchen','სალონის სამზარეულოს 3D სკანი'),
+]:pair(_ru,_en,_ka)

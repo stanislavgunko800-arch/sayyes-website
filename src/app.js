@@ -170,11 +170,11 @@ notesBoard?.querySelector('.notes-more')?.addEventListener('click',()=>notesBoar
 
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mobileMenu.hidden){closeMenu();menuToggle.focus();}if(dialog.open&&galleryIndex!==null){if(e.key==='ArrowRight'){e.preventDefault();showGallery(galleryIndex+1);}if(e.key==='ArrowLeft'){e.preventDefault();showGallery(galleryIndex-1);}}});
 
-// 3D-тур: тяжёлый просмотрщик (three.js) подгружается, только когда секция близко
-{const tour=document.querySelector('[data-tour]');
- if(tour){
-  const load=()=>{const s=document.createElement('script');s.type='module';s.src='/tour.js';document.body.appendChild(s)};
-  if('IntersectionObserver' in window){const io=new IntersectionObserver(e=>{if(e.some(x=>x.isIntersecting)){io.disconnect();load()}},{rootMargin:'120% 0px'});io.observe(tour)}else load();
- }}
-
+// 3D-блоки: тяжёлый просмотрщик (three.js) подгружается, только когда секция близко
+for(const [sel,src] of [['[data-tour]','/tour.js'],['[data-scan]','/scan.js']]){
+ const el=document.querySelector(sel);
+ if(!el)continue;
+ const load=()=>{const s=document.createElement('script');s.type='module';s.src=src;document.body.appendChild(s)};
+ if('IntersectionObserver' in window){const io=new IntersectionObserver(e=>{if(e.some(x=>x.isIntersecting)){io.disconnect();load()}},{rootMargin:'120% 0px'});io.observe(el)}else load();
+}
 initCorner();

@@ -14,7 +14,7 @@ controls.addEventListener('start',()=>controls.autoRotate=false);
 const size=()=>{const w=innerWidth,h=innerHeight;renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};
 addEventListener('resize',size);size();
 const draco=new DRACOLoader().setDecoderPath('/3d/draco/');
-new GLTFLoader().setDRACOLoader(draco).load('/preview/kitchen.glb',gltf=>{
+new GLTFLoader().setDRACOLoader(draco).load('/3d/kitchen.glb',gltf=>{
  gltf.scene.traverse(o=>{if(o.isMesh){const map=o.material.map;if(map){map.anisotropy=8;map.colorSpace=SRGBColorSpace}o.material=new MeshBasicMaterial({map})}});
  scene.add(gltf.scene);
  const box=new Box3().setFromObject(gltf.scene),c=box.getCenter(new Vector3()),s=box.getSize(new Vector3());
