@@ -170,9 +170,57 @@ for i, cy in enumerate((-0.7, 1.9)):
     box(f"trolley{i}", (0.35, 0.5, 0.7), (cx - 1.0, cy + 0.15, 0.4), mat("trolley", PORCELAIN, 0.4))
 
 # ---------- растение, ковёр, подвесные лампы ----------
-cyl("pot", 0.26, 0.5, (3.2, -2.6, 0.25), dark, 40)
-for i, (dx, dy, dz, r) in enumerate([(0, 0, 1.0, 0.38), (0.22, 0.1, 1.45, 0.3), (-0.2, -0.1, 1.5, 0.28), (0.05, 0.2, 1.9, 0.24)]):
-    sphere(f"leaf{i}", r, (3.2 + dx, -2.6 + dy, dz), sage)
+# ---------- уголок «как на фото»: бочки, светящиеся полки, плитка, меню ----------
+CREAM = (0.93, 0.9, 0.82)
+RX = W / 2  # правая стена, x = 4.0
+# плитка с орнаментом: шахматка двух сине-серых тонов, запекается в атлас
+tile = bpy.data.materials.new("tile")
+tile.use_nodes = True
+tn = tile.node_tree
+chk = tn.nodes.new("ShaderNodeTexChecker")
+chk.inputs["Scale"].default_value = 9.0
+chk.inputs["Color1"].default_value = (*lin((0.46, 0.5, 0.56)), 1)
+chk.inputs["Color2"].default_value = (*lin((0.82, 0.8, 0.76)), 1)
+tc = tn.nodes.new("ShaderNodeTexCoord")
+tn.links.new(tc.outputs["Object"], chk.inputs["Vector"])
+tn.links.new(chk.outputs["Color"], tn.nodes["Principled BSDF"].inputs["Base Color"])
+tn.nodes["Principled BSDF"].inputs["Roughness"].default_value = 0.6
+box("corner_tile", (1.9, 2.6, 0.02), (RX - 1.0, -2.4, 0.01), tile)
+# бочки: сливочная с бургунди-поясом и бургундовая с надписью
+cyl("barrel_a", 0.31, 0.92, (RX - 0.45, -2.05, 0.46), mat("barrel_cream", CREAM, 0.5), 64)
+cyl("barrel_a_band", 0.315, 0.42, (RX - 0.45, -2.05, 0.71), wine, 64)
+cyl("barrel_a_top", 0.3, 0.03, (RX - 0.45, -2.05, 0.935), mat("wood", (0.72, 0.6, 0.45), 0.6), 64)
+cyl("barrel_b", 0.31, 1.0, (RX - 0.5, -2.85, 0.5), wine, 64)
+cyl("barrel_b_top", 0.3, 0.03, (RX - 0.5, -2.85, 1.015), mat("wood", (0.72, 0.6, 0.45), 0.6), 64)
+bpy.ops.object.text_add(location=(RX - 0.5 - 0.312, -2.85, 0.62))
+yt = bpy.context.active_object
+yt.data.body = "Yes"
+yt.data.align_x = "CENTER"
+yt.data.align_y = "CENTER"
+yt.data.size = 0.24
+yt.data.extrude = 0.01
+yt.rotation_euler = (math.radians(90), 0, math.radians(-90))
+bpy.ops.object.convert(target="MESH")
+yt = bpy.context.active_object
+yt.name = "barrel_text"
+add(yt, mat("barrel_text", PORCELAIN, 0.4))
+# плетёная корзина
+cyl("basket", 0.2, 0.42, (RX - 0.9, -3.2, 0.21), mat("wicker", (0.62, 0.5, 0.36), 0.9), 32)
+# на бочках: щётки, косметичка
+for i, dx in enumerate((-0.1, 0.0, 0.1)):
+    cyl(f"brush{i}", 0.018, 0.2, (RX - 0.45 + dx, -2.05, 1.05), mat("brush", [PAPER, BURGUNDY, GREY][i], 0.5), 16)
+box("pouch", (0.22, 0.14, 0.1), (RX - 0.5, -2.85, 1.07), mat("pouch", CREAM, 0.9))
+# две светящиеся полки со стеной-подсветкой
+for i, z in enumerate((1.35, 1.0)):
+    box(f"cshelf{i}", (0.22, 1.5, 0.04), (RX - 0.11, -2.45, z), mat("wood", (0.72, 0.6, 0.45), 0.6))
+    box(f"cglow{i}", (0.02, 1.4, 0.03), (RX - 0.01, -2.45, z + 0.03), mat("warmglow", (1.0, 0.86, 0.62), 1.0, emit=6.0))
+    for k in range(5):
+        box(f"cprod{i}{k}", (0.1, 0.07, 0.17 + 0.03 * (k % 3)), (RX - 0.12, -3.0 + k * 0.3 + i * 0.1, z + 0.12 + 0.015 * (k % 3)),
+            mat(f"prod{(i+k)%4}", [PAPER, BURGUNDY, SAGE, PORCELAIN][(i + k) % 4], 0.5))
+# три плаката меню
+for i in range(3):
+    box(f"poster{i}", (0.02, 0.42, 0.58), (RX - 0.01, -2.0 - i * 0.5 - 0.0, 1.95), mat("poster", PORCELAIN, 0.8))
+    box(f"posterline{i}", (0.022, 0.3, 0.02), (RX - 0.012, -2.0 - i * 0.5, 2.17), dark)
 cyl("rug", 1.6, 0.012, (-0.3, -1.4, 0.006), mat("rug", (0.66, 0.65, 0.62), 0.95), 96)
 for i, (lx, ly) in enumerate([(-3.0, 1.2), (-2.2, 1.2), (-1.4, 1.2)]):
     cyl(f"cord{i}", 0.005, 1.4, (lx, ly, H - 0.7), dark, 8)
@@ -281,7 +329,8 @@ path = [
     {"p": [-1.6, -0.6, 1.5], "t": [-2.2, 3.0, 1.4]},
     {"p": [-2.2, -0.2, 1.45], "t": [-2.2, 3.5, 1.6]},
     {"p": [-1.0, -0.3, 1.6], "t": [3.8, 0.5, 1.3]},
-    {"p": [1.2, -3.2, 1.9], "t": [3.6, 0.6, 1.2]},
+    {"p": [0.2, -0.8, 1.6], "t": [3.9, -2.6, 1.0]},
+    {"p": [1.0, -4.6, 1.6], "t": [3.9, -2.6, 0.95]},
     {"p": [0.0, -3.0, 2.0], "t": [0.0, 3.5, 2.0]},
 ]
 json.dump({"path": path, "fov": 42}, open(os.path.join(OUT, "camera.json"), "w"))

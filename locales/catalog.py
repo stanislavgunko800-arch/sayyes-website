@@ -200,3 +200,5 @@ for _ru,_en,_ka in [
  ('Листайте, чтобы войти','Scroll to step inside','გადაფურცლეთ, რომ შეხვიდეთ'),
  ('3D-тур по салону','3D tour of the salon','სალონის 3D ტური'),
 ]:pair(_ru,_en,_ka)
+
+pair('Уголок','Corner','კუთხე')
