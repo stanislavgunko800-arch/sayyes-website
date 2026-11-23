@@ -3,6 +3,7 @@ import {build} from 'esbuild';
 import {cp,readFile,writeFile} from 'node:fs/promises';
 execFileSync('python3',['render.py'],{stdio:'inherit'});
 execFileSync('python3',['locales/generate.py'],{stdio:'inherit'});
+await build({entryPoints:['src/kitchen.js'],outfile:'dist/preview/kitchen.js',bundle:true,minify:true,format:'esm',target:['es2020'],legalComments:'none'});
 await build({entryPoints:['src/tour.js'],outfile:'dist/tour.js',bundle:true,minify:true,format:'esm',target:['es2020'],legalComments:'none'});
 await build({entryPoints:['src/app.js'],outfile:'dist/app.js',bundle:true,minify:true,format:'iife',target:['es2020'],legalComments:'inline'});
 const css=await Promise.all(['fonts','style','polish','clean'].map(n=>readFile(`src/${n}.css`,'utf8')));
